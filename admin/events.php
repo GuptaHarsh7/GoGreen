@@ -25,23 +25,23 @@
         </div>
       </div>
       <ul class="list-unstyled components mb-5">
-        <li class="active">
+        <li>
           <a href="dashboard.php"><i class="fas fa-adjust"></i> Dashboard</a>
         </li>
         <li>
-            <a href="#"><span class="fa fa-bell mr-3 notif"></span>Issues</a>
+            <a href="issues.php"><span class="fa fa-bell mr-3 notif"></span>Issues</a>
         </li>
         <li>
-          <a href="#"><span class="fa fa-gift mr-3"></span>Challenges</a>
+          <a href="challenges.php"><span class="fa fa-gift mr-3"></span>Challenges</a>
+        </li>
+        <li class="active">
+          <a href="events.php"><span class="fa fa-trophy mr-3"></span>Events</a>
         </li>
         <li>
-          <a href="#"><span class="fa fa-trophy mr-3"></span>Events</a>
+          <a href="setting.php"><span class="fa fa-cog mr-3"></span> Settings</a>
         </li>
         <li>
-          <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
-        </li>
-        <li>
-          <a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          <a href="logout.php"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
         </li>
       </ul>
 
@@ -49,8 +49,10 @@
 
     <div id="content" class="events p-4 p-md-5 pt-5">
 
-      <div class="row bg-title">
-              <h2>Events</h2> <br> <br> <br>
+      <div class="bg-title">
+            <h2 class="float-left"> Event Request </h2>
+            <button type="button" class="btn btn-primary float-right"> New Event</button>
+            <div style="clear:both"> </div>
       </div>
 
       <div class="row">
@@ -77,46 +79,57 @@
                 </div>
               </div>
           </div>
+        </div>
 
-          <div class="col-lg-3 col-sm-6 col-xs-12">
-              <div style="padding:15px">
-                <div class="card" style="width:100%;">
-                  <img src="../images/adminav.jpg" width="100%" height="200px" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Event 1</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="row bg-title">
+                <h2>Live Events</h2> <br> <br> <br>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div style="padding:15px">
+                  <div class="card shadow-lg mb-5 bg-white rounded" style="width:100%;">
+                    <img src="../images/adminav.jpg" width="100%" height="200px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Tree Plantation</h5>
+                      <div class="card-text">
+                        <li><b>Start Time:</b> 10/12/19</li>
+                        <li><b>End Time:</b> 10/12/19</li>
+                        <li><b>Venue:</b> 550, party plot and more </li>
+                        <li><b>Registration Fees:</b> 550</li>
+                        <li><b>Hosted By:</b> 550</li>
+                        <li><b>Contact No:</b> 550</li>
+                        <li><b>Event details:</b> xyz.pdf </li>
+                      </div>
+                      <br>
+                      <a href="#" class="btn btn-sm btn-info">Edit</a>
+                      <a href="#" class="btn btn-sm btn-danger">Cancel</a>
+                    </div>
                   </div>
                 </div>
-              </div>
+            </div>
           </div>
 
-          <div class="col-lg-3 col-sm-6 col-xs-12">
-              <div style="padding:15px">
-                <div class="card" style="width:100%;">
-                  <img src="../images/adminav.jpg" width="100%" height="200px" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Event 1</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-          </div>
 
-          <div class="col-lg-3 col-sm-6 col-xs-12">
-              <div style="padding:15px">
-                <div class="card" style="width:100%;">
-                  <img src="../images/adminav.jpg" width="100%" height="200px" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Event 1</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
+        <!--  Models -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
           </div>
-      </div>
+        </div>
 
     </div>
   </div>

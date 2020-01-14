@@ -24,23 +24,23 @@
         </div>
       </div>
       <ul class="list-unstyled components mb-5">
-        <li class="active">
+        <li>
           <a href="dashboard.php"><i class="fas fa-adjust"></i> Dashboard</a>
         </li>
-        <li>
-            <a href="#"><span class="fa fa-bell mr-3 notif"></span>Issues</a>
+        <li class="active">
+            <a href="issues.php"><span class="fa fa-bell mr-3 notif"></span>Issues</a>
         </li>
         <li>
-          <a href="#"><span class="fa fa-gift mr-3"></span>Challenges</a>
+          <a href="challenges.php"><span class="fa fa-gift mr-3"></span>Challenges</a>
+        </li>
+        <li >
+          <a href="events.php"><span class="fa fa-trophy mr-3"></span>Events</a>
         </li>
         <li>
-          <a href="#"><span class="fa fa-trophy mr-3"></span>Events</a>
+          <a href="setting.php"><span class="fa fa-cog mr-3"></span> Settings</a>
         </li>
         <li>
-          <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
-        </li>
-        <li>
-          <a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          <a href="logout.php"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
         </li>
       </ul>
 
