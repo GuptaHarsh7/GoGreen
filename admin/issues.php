@@ -7,6 +7,7 @@
   // }
 ?>
   <link rel="stylesheet" href="extra/style.css">
+  <link rel="stylesheet" href="extra/dashboard.css">
   <title>Admin Dashboard</title>
 </head>
 <body>
@@ -47,9 +48,60 @@
     </nav>
 
     <div id="content" class="p-4 p-md-5 pt-5">
-      <h2 class="mb-4">Sidebar #09</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="white-box">
+                  <h3 class="box-title"> Issue Requests </h3>
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>#</th>
+                                  <th> User </th>
+                                  <th> Title </th>
+                                  <th> Details </th>
+                                  <th> Attachments </th>
+                                  <th> Approve </th>
+                                  <th> Discard </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>1</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td><a href="#"> view </a></td>
+                                  <td><a href="#"> view </a></td>
+                                  <td> <a href="#" class="btn btn-success"> Approve </a></td>
+                                  <td><a href="#"  class="btn btn-danger"> Decline </a></td>
+                              </tr>
+                              <tr>
+                                  <td>1</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td><a href="#"> view </a></td>
+                                  <td><a href="#"> view </a></td>
+                                  <td> <a href="#" class="btn btn-success"> Approve </a></td>
+                                  <td><a href="#"  class="btn btn-danger"> Decline </a></td>
+                              </tr>
+                              <tr>
+                                  <td>1</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td><a href="#"> view </a></td>
+                                  <td><a href="#"> view </a></td>
+                                  <td> <a href="#" class="btn btn-success"> Approve </a></td>
+                                  <td><a href="#"  class="btn btn-danger"> Decline </a></td>
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
     </div>
   </div>
 
