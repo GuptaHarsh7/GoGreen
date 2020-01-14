@@ -102,12 +102,15 @@
                       </div>
                       <br>
                       <a href="#" class="btn btn-sm btn-info">Edit</a>
+                      <a href="#" class="btn btn-sm btn-primary">Users</a>
                       <a href="#" class="btn btn-sm btn-danger">Cancel</a>
                     </div>
                   </div>
                 </div>
             </div>
           </div>
+
+
 
 
         <!--  Models -->

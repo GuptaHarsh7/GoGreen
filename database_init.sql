@@ -18,7 +18,7 @@ CREATE TABLE `admin` (
   `id` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `email` text NOT NULL,
   `password` text NOT NULL,
-  'name' text NOT NULL
+  `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -28,13 +28,14 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `user` (
-  `id` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `uid` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `email` text NOT NULL,
   `password` text NOT NULL,
-  'name' text NOT NULL,
-  'city' text NOT NULL,
-  'state' text NOT NULL,
-  'address' text NOT NULL,
+  `name` text NOT NULL,
+  `city` text NOT NULL,
+  `state` text NOT NULL,
+  `address` text NOT NULL,
+  `contact` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -44,13 +45,17 @@ CREATE TABLE `user` (
 --
 
 CREATE TABLE `event` (
-  `id` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `email` text NOT NULL,
-  `password` text NOT NULL,
-  'name' text NOT NULL,
-  'city' text NOT NULL,
-  'state' text NOT NULL,
-  'address' text NOT NULL,
+  `evid` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `name` text NOT NULL,
+  `type` text NOT NULL,
+  `host` text NOT NULL,
+  `description` text NOT NULL,
+  `venue` text NOT NULL,
+  `city` text NOT NULL,
+  `start-date` text NOT NULL,
+  `end-date` text NOT NULL,
+  `registrations` int(11) DEFAULT NULL,
+  `active` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -59,31 +64,31 @@ CREATE TABLE `event` (
 -- Table structure for table `challenges`
 --
 
-CREATE TABLE `challenges` (
-  `id` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `email` text NOT NULL,
-  `password` text NOT NULL,
-  'name' text NOT NULL,
-  'city' text NOT NULL,
-  'state' text NOT NULL,
-  'address' text NOT NULL,
+CREATE TABLE `challenge` (
+  `cid` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `name` text NOT NULL,
+  `type` text NOT NULL,
+  `description` text NOT NULL,
+  `start-date` text NOT NULL,
+  `end-date` text NOT NULL,
+  `registrations` int(11) DEFAULT NULL,
+  `completions` int(11) DEFAULT NULL,
+  `active` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event`
+-- Table structure for table `registration`
 --
 
-CREATE TABLE `event` (
-  `id` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `email` text NOT NULL,
-  `password` text NOT NULL,
-  'name' text NOT NULL,
-  'city' text NOT NULL,
-  'state' text NOT NULL,
-  'address' text NOT NULL,
+CREATE TABLE `registration` (
+  `rid` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `uid` text NOT NULL,
+  `type` text NOT NULL,
+  `eid` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -91,7 +96,7 @@ CREATE TABLE `event` (
 -- Table structure for table `notification`
 --
 
-CREATE TABLE `notificatio` (
+CREATE TABLE `notification` (
   `nid` int(11) NOT NULL,
   `title` text NOT NULL,
   `description` text NOT NULL,

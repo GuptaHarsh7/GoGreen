@@ -25,7 +25,7 @@
         </div>
       </div>
       <ul class="list-unstyled components mb-5">
-        <li>
+        <li class="active">
           <a href="dashboard.php"><i class="fas fa-adjust"></i> Dashboard</a>
         </li>
         <li>
@@ -34,7 +34,7 @@
         <li>
           <a href="challenges.php"><span class="fa fa-gift mr-3"></span>Challenges</a>
         </li>
-        <li class="active">
+        <li>
           <a href="events.php"><span class="fa fa-trophy mr-3"></span>Events</a>
         </li>
         <li>
@@ -111,7 +111,7 @@
                   <div class="table-responsive">
                       <table class="table">
                           <thead>
-                              <tr>
+                              <tr style="background-color:#00FF00">
                                   <th>#</th>
                                   <th>NAME</th>
                                   <th>STATUS</th>

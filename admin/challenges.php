@@ -7,6 +7,7 @@
   // }
 ?>
   <link rel="stylesheet" href="extra/style.css">
+  <link rel="stylesheet" href="extra/dashboard.css">
   <title>Admin Dashboard</title>
 </head>
 <body>
@@ -47,9 +48,157 @@
     </nav>
 
     <div id="content" class="p-4 p-md-5 pt-5">
-      <h2 class="mb-4">Sidebar #09</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="white-box">
+                  <h3 class="box-title float-left"> Challenges</h3>
+                  <a class="box-title btn btn-primary float-right" style="color:white"> Add challenge </a>
+                  <h3 style="clear:both"> </h3>
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>#</th>
+                                  <th> NAME </th>
+                                  <th> Date </th>
+                                  <th> City </th>
+                                  <th> Details </th>
+                                  <th> Completed By </th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>1</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td>SALE</td>
+                                  <td class="txt-oflo">April 18, 2017</td>
+                                  <td><span class="text-success">$24</span></td>
+                              </tr>
+                              <tr>
+                                  <td>2</td>
+                                  <td class="txt-oflo">Real Homes WP Theme</td>
+                                  <td>EXTENDED</td>
+                                  <td class="txt-oflo">April 19, 2017</td>
+                                  <td><span class="text-info">$1250</span></td>
+                              </tr>
+                              <tr>
+                                  <td>3</td>
+                                  <td class="txt-oflo">Ample Admin</td>
+                                  <td>EXTENDED</td>
+                                  <td class="txt-oflo">April 19, 2017</td>
+                                  <td><span class="text-info">$1250</span></td>
+                              </tr>
+                              <tr>
+                                  <td>4</td>
+                                  <td class="txt-oflo">Medical Pro WP Theme</td>
+                                  <td>TAX</td>
+                                  <td class="txt-oflo">April 20, 2017</td>
+                                  <td><span class="text-danger">-$24</span></td>
+                              </tr>
+                              <tr>
+                                  <td>5</td>
+                                  <td class="txt-oflo">Hosting press html</td>
+                                  <td>SALE</td>
+                                  <td class="txt-oflo">April 21, 2017</td>
+                                  <td><span class="text-success">$24</span></td>
+                              </tr>
+                              <tr>
+                                  <td>6</td>
+                                  <td class="txt-oflo">Digital Agency PSD</td>
+                                  <td>SALE</td>
+                                  <td class="txt-oflo">April 23, 2017</td>
+                                  <td><span class="text-danger">-$14</span></td>
+                              </tr>
+                              <tr>
+                                  <td>7</td>
+                                  <td class="txt-oflo">Helping Hands WP Theme</td>
+                                  <td>MEMBER</td>
+                                  <td class="txt-oflo">April 22, 2017</td>
+                                  <td><span class="text-success">$64</span></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="white-box">
+                  <h3 class="box-title"> Challenge Request </h3>
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>#</th>
+                                  <th> NAME </th>
+                                  <th> Date </th>
+                                  <th> City </th>
+                                  <th> Details </th>
+                                  <th> Completed By </th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>1</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td>SALE</td>
+                                  <td class="txt-oflo">April 18, 2017</td>
+                                  <td><span class="text-success">$24</span></td>
+                              </tr>
+                              <tr>
+                                  <td>2</td>
+                                  <td class="txt-oflo">Real Homes WP Theme</td>
+                                  <td>EXTENDED</td>
+                                  <td class="txt-oflo">April 19, 2017</td>
+                                  <td><span class="text-info">$1250</span></td>
+                              </tr>
+                              <tr>
+                                  <td>3</td>
+                                  <td class="txt-oflo">Ample Admin</td>
+                                  <td>EXTENDED</td>
+                                  <td class="txt-oflo">April 19, 2017</td>
+                                  <td><span class="text-info">$1250</span></td>
+                              </tr>
+                              <tr>
+                                  <td>4</td>
+                                  <td class="txt-oflo">Medical Pro WP Theme</td>
+                                  <td>TAX</td>
+                                  <td class="txt-oflo">April 20, 2017</td>
+                                  <td><span class="text-danger">-$24</span></td>
+                              </tr>
+                              <tr>
+                                  <td>5</td>
+                                  <td class="txt-oflo">Hosting press html</td>
+                                  <td>SALE</td>
+                                  <td class="txt-oflo">April 21, 2017</td>
+                                  <td><span class="text-success">$24</span></td>
+                              </tr>
+                              <tr>
+                                  <td>6</td>
+                                  <td class="txt-oflo">Digital Agency PSD</td>
+                                  <td>SALE</td>
+                                  <td class="txt-oflo">April 23, 2017</td>
+                                  <td><span class="text-danger">-$14</span></td>
+                              </tr>
+                              <tr>
+                                  <td>7</td>
+                                  <td class="txt-oflo">Helping Hands WP Theme</td>
+                                  <td>MEMBER</td>
+                                  <td class="txt-oflo">April 22, 2017</td>
+                                  <td><span class="text-success">$64</span></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
     </div>
   </div>
 
