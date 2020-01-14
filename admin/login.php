@@ -1,4 +1,4 @@
-    <?php include("../header.php"); ?>
+    <?php include("adminheader.php"); ?>
     <link rel="stylesheet" href="../css/adminlogin.css">
     <title>Admin Login</title>
   </head>

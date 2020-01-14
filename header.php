@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 <?php
   include("config.php");
+
   $db=new Database();
   $conn=$db->db_connect();
   error_reporting(-1);
@@ -11,6 +12,7 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
     <link rel="stylesheet" href="lib/Fontawesome/css/all.min.css">
     <link rel="stylesheet" href="lib/Bootsrap/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
