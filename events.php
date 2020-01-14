@@ -19,6 +19,7 @@
 
     $query="Insert into `event` (`name`,`type`,`venue`,`city`,`start-date`,`end-date`,`registrations`,`active`,`host`,`description`) values('$event_name','$type','$venue','$city','$start_date','$end_date','1','0','dhruv','file')";
     $result=$db->insertQuery($query);
+    header("Location:events.php");
   }
 ?>
 
