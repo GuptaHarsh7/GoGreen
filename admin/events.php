@@ -153,7 +153,7 @@
                         <li><b>Venue:</b> <?= $row['venue'] ?> </li>
                         <li><b>Registration Fees:</b> N/A </li>
                         <li><b>Hosted By:</b> <?= $row['host'] ?> </li>
-                        <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link=<?=  $row['description'] ?>>View</a> </li>
+                        <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link="<?=$row['description']?>" >View</a> </li>
                       </div>
                       <br>
                       <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-info">Edit</a>
@@ -267,6 +267,7 @@
                 </object>
               </div>
               <div class="modal-footer">
+                <a type="button" class="download btn btn-primary" href="" download>Download</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </form>
@@ -285,7 +286,8 @@
       var link = button.data('link');
       var modal = $(this);
       modal.find('.modal-title').text('Details of ' + title);
-      $( "object" ).replaceWith('<object width="400" height="400" data="../' + link + '"></object>');
+      $(".download").attr('href',"../"+link);
+      $( "object" ).replaceWith('<object width="100%" height="400" data="../' + link + '"></object>');
     });
   </script>
   <script src="../lib/jquery.min.js"></script>

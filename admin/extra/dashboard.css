@@ -3,7 +3,9 @@
 }
 
 
-
+.form-control{
+  border: 1px solid #ced4da !important;
+}
 .white-box {
     background: #fff;
     padding: 25px;

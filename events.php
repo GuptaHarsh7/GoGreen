@@ -218,7 +218,7 @@ include("header.php");
                  <p class="card-text mb-auto">City : '.$row["city"].'</p>
                  <p class="card-text mb-auto">'.$row["registrations"].' Total Participants</p>
                  <div class="">
-                   <button type="button" class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</button>
+                   <a type="button" class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</a>
                  </div>
               </div>
               <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 200px; height: auto;">

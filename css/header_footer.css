@@ -5,6 +5,7 @@ body{
   margin: 0;
   padding: 0;
   padding-top: 100px;
+  padding-bottom:  100px;
 }
 
 .usercontainer{
@@ -38,6 +39,7 @@ body{
   margin: auto;
   box-shadow: 5px 5px 10px lightgrey;
   border-radius: 5px;
+  z-index: 100;
 }
 #topbar .left{
   padding: 10px;

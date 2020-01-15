@@ -11,6 +11,7 @@
         <li><a href="#">Issues</a></li>
         <li><a href="#">Nearby</a></li>
         <li><a href="https://earth.nullschool.net/" target="_blank">Globe</a></li>
+        <li><a href="https://earth.nullschool.net/" target="_blank">Login</a></li>
       </ul>
     </div>
   </div>
