@@ -9,8 +9,7 @@
 
       <div class="login">
         <div class="login1">
-          <div class="one">
-          </div>
+          
           <div class="two">
             GoGreen Admin Panel
           </div>
