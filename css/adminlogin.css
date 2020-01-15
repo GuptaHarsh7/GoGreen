@@ -3,7 +3,7 @@ body{
   padding: 0;
   box-sizing: border-box;
   font-family: 'Ubuntu', sans-serif;
-  background: url('../images/back.jpeg');
+  background: url('../images/adminbg.jpg');
   background-size: cover;
   background-position: 50% 40%;
   background-repeat: no-repeat;
@@ -21,9 +21,10 @@ body{
 .logo1{
   width: 100px;
   height: 60px;
-  background: url('logo.png');
+  background: url('../images/logo.png');
   background-position: 50% 50%;
-  background-size: cover;
+  background-size:contain;
+  background-repeat: no-repeat;
   float: left;
 }
 .logo2{

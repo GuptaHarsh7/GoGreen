@@ -12,7 +12,7 @@
   }
   else
   {
-    $query="select * from admin where email_id='".$email."'";
+    $query="select * from admin where email='".$email."'";
   	$nums=$db->db_num($query);
   	if($nums>0)
   	{
@@ -20,9 +20,9 @@
   		if(base64_decode($row["password"]) == $password)
   		{
   			$emailsss=$row['email'];
-  		  $_SESSION["admin"]=$emailsss;
+  		  $_SESSION["admin"]=$row['id'];
         $_SESSION['message'] = "";
-  		  header("Location:".$url."/dashboard");
+  		  header("Location:dashboard.php");
   		}
   		else{
   			$_SESSION["message"]="Registration id or password is incorrect.";

@@ -13,18 +13,18 @@
   <body>
 
     <div class="main">
-      <iframe id="myFrame" src="https://earth.nullschool.net/" style="width: 100%; height: 800px;"></iframe>
+      <iframe target="_self" id="myFrame" src="https://earth.nullschool.net/" style="width: 100%; height: 800px;"></iframe>
     </div>
     <button type="button" name="button" onclick=function1()> hello </button>
 
     <script type="text/javascript">
-
-      var iframe = document.getElementById("myFrame");
-      function function1(){
-
-        var t = iframe.contentWindow.document.getElementID("menu");
-        console.log(t);
-      }
+    var oldWindowOpen = window.open;
+window.open = function (url, name, features, replace) {
+  // handle window.open yourself
+  myIframe.src = url;
+  // if you want to use functionality of original window.open call the oldWindowOpen function
+  oldWindowOpen(url, 'myName', 'myFeatures');
+}
     </script>
   </body>
 </html>

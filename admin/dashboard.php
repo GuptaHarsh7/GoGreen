@@ -1,10 +1,10 @@
 <?php include("adminheader.php"); ?>
 <?php
-  // if(!$_SESSION["admin"])
-  // {
-  // 	$_SESSION["message"]="Please login to continue !";
-  // 	// header("Location:login.php");
-  // }
+  if(!$_SESSION["admin"])
+  {
+  	$_SESSION["message"]="Please login to continue !";
+  	header("Location:login.php");
+  }
 ?>
   <link rel="stylesheet" href="extra/style.css">
   <link rel="stylesheet" href="extra/dashboard.css">
@@ -26,7 +26,7 @@
       </div>
       <ul class="list-unstyled components mb-5">
         <li class="active">
-          <a href="dashboard.php"><i class="fas fa-adjust"></i> Dashboard</a>
+            <a href="dashboard.php"><span class="fas fa-adjust mr-3 notif"></span>Dashboard</a>
         </li>
         <li>
             <a href="issues.php"><span class="fa fa-bell mr-3 notif"></span>Issues</a>
