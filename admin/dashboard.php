@@ -1,6 +1,6 @@
 <?php include("adminheader.php"); ?>
 <?php
-  if(!$_SESSION["admin"])
+  if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
   {
   	$_SESSION["message"]="Please login to continue !";
   	header("Location:login.php");

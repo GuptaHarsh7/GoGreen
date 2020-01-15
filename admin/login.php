@@ -3,8 +3,9 @@
     <title>Admin Login</title>
   </head>
   <body>
-    <?php include("topbar.php"); ?>
-
+    <?php include("topbar.php");
+    if(!isset($_SESSION["message"])) $_SESSION["message"] = "";
+    ?>
 
       <div class="login">
         <div class="login1">

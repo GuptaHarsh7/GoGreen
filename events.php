@@ -1,10 +1,13 @@
-<?php include("header.php"); ?>
-<link rel="stylesheet" href="css/events.css">
+<?php
+include("header.php");
+?>
 <title>Events</title>
+<link rel="stylesheet" href="css/events.css">
 </head>
 <body>
 
 <?php
+  include 'topbar.php';
   if(isset($_POST['host']) && ! empty ($_POST['host']))
   {
     $event_name=mysqli_real_escape_string($conn,$_POST['event-name']);
@@ -36,7 +39,7 @@
     $update=$db->updateQuery($updatequery);
   }
 ?>
-
+<div class="usercontainer">
 <div class="modal fade" id="hostevent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -226,7 +229,7 @@
       }
     ?>
 </div>
-
+</div>
 <script type="text/javascript">
   $('#more-info').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
@@ -248,3 +251,5 @@
   modal.find('.modal-body input').val(evid)
 })
 </script>
+</div>
+<?php include('footer.php') ?>
