@@ -16,8 +16,25 @@
     $city=mysqli_real_escape_string($conn,$_POST['city']);
     $start_date=mysqli_real_escape_string($conn,$_POST['start-date']);
     $end_date=mysqli_real_escape_string($conn,$_POST['end-date']);
-    $query="Insert into `event` (`name`,`type`,`venue`,`city`,`start-date`,`end-date`,`registrations`,`active`,`host`,`description`) values('$event_name','$type','$venue','$city','$start_date','$end_date','1','0','GoGreen','file')";
+    $target_dir = "event-attachments/";
+    $target_file = $target_dir . basename($_FILES["description"]["name"]);
+    $target_dir1 = "../event-attachments/";
+    $target_file1 = $target_dir1 . basename($_FILES["description"]["name"]);
+    if (move_uploaded_file($_FILES["description"]["tmp_name"], $target_file1)) {
+        // echo "The file ". basename( $_FILES["description"]["name"]). " has been uploaded.";
+    } else {
+        // echo "Sorry, there was an error uploading your file.";
+    }
+    $query="Insert into `event` (`name`,`type`,`venue`,`city`,`start-date`,`end-date`,`registrations`,`active`,`host`,`description`) values('$event_name','$type','$venue','$city','$start_date','$end_date','0','0','GoGreen','$target_file')";
     $result=$db->insertQuery($query);
+    header("Location:events.php");
+  }
+
+  if(isset($_GET['acc']) && isset($_GET['eid'])){
+    $eid = $_GET['eid'];
+    $acc = $_GET['acc'];
+    $sql="UPDATE `event` SET `active`='$acc' where evid='$eid'";
+    $result = $db->updateQuery($sql);
     header("Location:events.php");
   }
 ?>
@@ -104,7 +121,7 @@
                     <br>
                     <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-info">Edit</a>
                     <a href="events.php?acc=1&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-primary">Approve</a>
-                    <a href="events.php?acc=0&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Decline</a>
+                    <a href="events.php?acc=3&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Decline</a>
                   </div>
                 </div>
               </div>
@@ -119,7 +136,7 @@
         </div>
         <div class="row">
           <?php
-            $sql = "SELECT * FROM event WHERE active = '0'";
+            $sql = "SELECT * FROM event WHERE active = '1'";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
               while($row = mysqli_fetch_assoc($result)) {
@@ -141,7 +158,7 @@
                       <br>
                       <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-info">Edit</a>
                       <a href="events.php?acc=4&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-primary">Users</a>
-                      <a href="events.php?acc=3&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Cancel</a>
+                      <a href="events.php?acc=2&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Cancel</a>
                     </div>
                   </div>
                 </div>
@@ -166,7 +183,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form class="form" method="post" action="events.php">
+                <form class="form" method="post" action="events.php" enctype="multipart/form-data">
                   <div class="row">
                   	<div class="col-sm-12">
                     	<div class="form-group">
@@ -268,7 +285,7 @@
       var link = button.data('link');
       var modal = $(this);
       modal.find('.modal-title').text('Details of ' + title);
-      $("object").repaceWith('<object width="600" height="600" data="'+link+'"></object>');
+      $( "object" ).replaceWith('<object width="400" height="400" data="../' + link + '"></object>');
     });
   </script>
   <script src="../lib/jquery.min.js"></script>

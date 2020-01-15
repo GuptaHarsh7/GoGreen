@@ -1,5 +1,4 @@
 <?php include("header.php"); ?>
-<link rel="stylesheet" href="css/adminlogin.css">
 <link rel="stylesheet" href="css/events.css">
 <title>Events</title>
 </head>
@@ -33,7 +32,7 @@
     $uid=$_SESSION['uid'];
     $query="Insert into `registration` (`uid`,`type`,`eid`) values('$uid','event',$eid)";
     $result=$db->insertQuery($query);
-    $updatequery="Update `event` set `registrations`=`registrations`+1 where `eid`=$eid";
+    $updatequery="Update `event` set `registrations`=`registrations`+1 where `eid`='$eid'";
     $update=$db->updateQuery($updatequery);
   }
 ?>
