@@ -172,12 +172,14 @@ include("header.php");
 <br>
   <div class="current_events">
     <h3 style="text-align:center;">Current Events</h3>
+    <hr>
+    <div class="row">
   <?php
     $query="Select * from event where active=1";
     $result = mysqli_query($conn, $query);
     while($row = mysqli_fetch_assoc($result)) {
        echo '
-          <div class="row">
+
           <div class="col-md-4">
              <div class="card border-success flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
@@ -195,20 +197,23 @@ include("header.php");
                 <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 200px; height: auto;">
              </div>
           </div>
-          </div>
+
        ';
     }
   ?>
   </div>
+  </div>
 
   <div class="past_events">
     <h3 style="text-align:center;">Past Events</h3>
+    <hr>
+    <div class="row">
     <?php
-      $query="Select * from event where active=0";
+      $query="Select * from event where active=1";
       $result = mysqli_query($conn, $query);
       while($row = mysqli_fetch_assoc($result)) {
         echo '
-        <div class="row">
+
         <div class="col-md-4">
            <div class="card border-success flex-md-row mb-4 shadow-sm h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
@@ -224,10 +229,11 @@ include("header.php");
               <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 200px; height: auto;">
            </div>
         </div>
-        </div>
+
         ';
       }
     ?>
+    </div>
 </div>
 </div>
 <script type="text/javascript">
