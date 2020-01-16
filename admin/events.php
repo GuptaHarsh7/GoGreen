@@ -1,10 +1,10 @@
 <?php include("adminheader.php"); ?>
 <?php
-  if(!$_SESSION["admin"])
-  {
-  	$_SESSION["message"]="Please login to continue !";
-  	header("Location:login.php");
-  }
+if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
+{
+  $_SESSION["message"]="Please login to continue !";
+  header("Location:login.php");
+}
 ?>
 
 <?php
@@ -50,6 +50,7 @@
 </head>
 <body>
 
+  <?php if(isset($_REQUEST['edit'])) include('editeventt.php'); ?>
   <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
       <div class="custom-menu">
@@ -91,6 +92,7 @@
             <h2 class="float-left"> Event Request </h2>
             <button type="button" class="btn btn-success btn-lg  float-right" data-toggle="modal" data-target="#hostevent">Host An Event!</button>
             <div style="clear:both"> </div>
+            <hr>
       </div>
 
 
@@ -119,20 +121,23 @@
                       <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link=<?=  $row['description'] ?>>View</a> </li>
                     </div>
                     <br>
-                    <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-info">Edit</a>
-                    <a href="events.php?acc=1&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-primary">Approve</a>
-                    <a href="events.php?acc=3&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Decline</a>
+                    <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-info">Edit</a>
+                    <a href="events.php?acc=1&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-primary">Approve</a>
+                    <a href="events.php?acc=3&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-danger">Decline</a>
                   </div>
                 </div>
               </div>
           </div>
           <?php
             }}
+
           ?>
         </div>
 
-        <div class="row bg-title">
-                <h2>Live Events</h2> <br> <br> <br>
+        <div class="bg-title">
+              <h2 class="float-left"> Live Events </h2>
+              <div style="clear:both"> </div>
+              <hr>
         </div>
         <div class="row">
           <?php
@@ -156,15 +161,16 @@
                         <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link="<?=$row['description']?>" >View</a> </li>
                       </div>
                       <br>
-                      <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-info">Edit</a>
-                      <a href="events.php?acc=4&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-primary">Users</a>
-                      <a href="events.php?acc=2&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Cancel</a>
+                      <a href="events.php?edit=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-info">Edit</a>
+                      <a href="events.php?acc=4&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-primary">Users</a>
+                      <a href="events.php?acc=2&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-success">Complete</a>
                     </div>
                   </div>
                 </div>
             </div>
             <?php
               }}
+
             ?>
           </div>
 
