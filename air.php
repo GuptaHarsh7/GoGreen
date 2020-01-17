@@ -21,7 +21,7 @@
     <hr>
     <div class="recent">
       <br>
-      
+
       <div class="box row">
           <div class="col-md-4 sp">
             <div class="innerbox">
@@ -81,7 +81,7 @@
           var  osmLayer  =  L.tileLayer(OSM_URL,  {attribution:  OSM_ATTRIB});
           var  WAQI_URL    =  "https://tiles.waqi.info/tiles/"+a[i-1]+"/{z}/{x}/{y}.png?token=_TOKEN_ID_";
           var  WAQI_ATTR  =  'Air  Quality  Tiles  &copy;  <a  href="http://waqi.info">waqi.info</a>';
-          var  waqiLayer  =  L.tileLayer(WAQI_URL,  {attribution:  WAQI_ATTR});
+          var  waqiLayer  =  L.tileLayer(WAQI_URL);
           var map  =  L.map('map'+i).setView([26.9124,  75.7873],  9);
           map.addLayer(osmLayer).addLayer(waqiLayer);
           }
