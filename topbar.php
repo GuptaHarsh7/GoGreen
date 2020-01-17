@@ -9,7 +9,7 @@
       <ul>
         <li><a href="events.php" class="btn btn-sm btn-outline-success">Event</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success">Challenges</a></li>
-        <li><a href="#" class="btn btn-sm btn-outline-success">Issues</a></li>
+        <li><a href="issues.php" class="btn btn-sm btn-outline-success">Issues</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success">Nearby</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">More</a></li>
         <?php  if($_SESSION["user"]!=null) {?>

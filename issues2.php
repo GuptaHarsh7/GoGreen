@@ -1,9 +1,14 @@
 <?php include("header.php"); ?>
+<title>GoGreen</title>
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/footer2.css">
+</head>
+<body>
+<?php include('topbar.php');?>
 <link rel="stylesheet" href="css/issues.css">
 <title>Issues</title>
 </head>
 <body>
-<?php include('topbar.php');?>
   <button type="button" id="fake" class="btn btn-success btn-sm" data-toggle="modal" data-target="#discuss" style="visibility:hidden">Discuss</button>
   <?php
 
