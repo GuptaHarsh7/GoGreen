@@ -1,5 +1,7 @@
 <div id="topbar">
-  <?php if(!isset($_SESSION["user"])) $_SESSION["user"] = null; ?>
+  <?php
+  ob_start();
+  if(!isset($_SESSION["user"])) $_SESSION["user"] = null; ?>
   <div class="temp">
     <div class="left">
       <div class="img"></div>
@@ -17,7 +19,6 @@
       <?php  } else { ?>
         <li><a href="login.php" class="btn btn-sm btn-outline-success" >Login </a></li>
       <?php } ?>
-
       </ul>
     </div>
     <div style="clear:both">
@@ -81,3 +82,4 @@ function myFunction() {
 </div>
 
 </div>
+<?php ob_end_flush(); ?>
