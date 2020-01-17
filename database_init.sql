@@ -79,6 +79,23 @@ CREATE TABLE `challenge` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `issues`
+--
+
+CREATE TABLE `issue` (
+  `isid` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `host` text NOT NULL,
+  `category` text NOT NULL,
+  `heading` text NOT NULL,
+  `issue` text NOT NULL,
+  `attachments` text NOT NULL,
+  `upvotes` int(11) NOT NULL,
+  `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `registration`
 --
 

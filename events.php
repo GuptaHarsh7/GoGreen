@@ -1,11 +1,14 @@
-<?php include("header.php"); ?>
-<link rel="stylesheet" href="css/adminlogin.css">
-<link rel="stylesheet" href="css/events.css">
+<?php
+include("header.php");
+?>
 <title>Events</title>
+<link rel="stylesheet" href="css/events.css">
+<link rel="stylesheet" href="css/footer2.css">
 </head>
 <body>
 
 <?php
+  include 'topbar.php';
   if(isset($_POST['host']) && ! empty ($_POST['host']))
   {
     $event_name=mysqli_real_escape_string($conn,$_POST['event-name']);
@@ -33,11 +36,11 @@
     $uid=$_SESSION['uid'];
     $query="Insert into `registration` (`uid`,`type`,`eid`) values('$uid','event',$eid)";
     $result=$db->insertQuery($query);
-    $updatequery="Update `event` set `registrations`=`registrations`+1 where `eid`=$eid";
+    $updatequery="Update `event` set `registrations`=`registrations`+1 where `eid`='$eid'";
     $update=$db->updateQuery($updatequery);
   }
 ?>
-
+<div class="usercontainer">
 <div class="modal fade" id="hostevent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -170,12 +173,14 @@
 <br>
   <div class="current_events">
     <h3 style="text-align:center;">Current Events</h3>
+    <hr>
+    <div class="row">
   <?php
     $query="Select * from event where active=1";
     $result = mysqli_query($conn, $query);
     while($row = mysqli_fetch_assoc($result)) {
        echo '
-          <div class="row">
+
           <div class="col-md-4">
              <div class="card border-success flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
@@ -193,20 +198,23 @@
                 <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 200px; height: auto;">
              </div>
           </div>
-          </div>
+
        ';
     }
   ?>
   </div>
+  </div>
 
   <div class="past_events">
     <h3 style="text-align:center;">Past Events</h3>
+    <hr>
+    <div class="row">
     <?php
-      $query="Select * from event where active=0";
+      $query="Select * from event where active=1";
       $result = mysqli_query($conn, $query);
       while($row = mysqli_fetch_assoc($result)) {
         echo '
-        <div class="row">
+
         <div class="col-md-4">
            <div class="card border-success flex-md-row mb-4 shadow-sm h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
@@ -216,18 +224,19 @@
                  <p class="card-text mb-auto">City : '.$row["city"].'</p>
                  <p class="card-text mb-auto">'.$row["registrations"].' Total Participants</p>
                  <div class="">
-                   <button type="button" class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</button>
+                   <a type="button" class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</a>
                  </div>
               </div>
               <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 200px; height: auto;">
            </div>
         </div>
-        </div>
+
         ';
       }
     ?>
+    </div>
 </div>
-
+</div>
 <script type="text/javascript">
   $('#more-info').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
@@ -249,3 +258,5 @@
   modal.find('.modal-body input').val(evid)
 })
 </script>
+</div>
+<?php include('footer2.php') ?>
