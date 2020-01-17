@@ -109,18 +109,18 @@
   <h3 style="text-align:center;"> Greeny News </h3>
   <div class="scrollbox">
     <marquee direction="up">
-        <li> Suryaprakash Agarwal Donated Rs2000 to the GoGreen Box. Cheers to Him!</li>
+        <li> Suryaprakash Agarwal Donated Rs 2000 to the GoGreen Box. Cheers to Him!</li>
         <li> GoGreen sponsored Energy Club to distribute 50 solar lamps in unelectrified villages. </li>
-        <li> Tesla promised investment of rs 1 crore for 1 million tree plantations. </li>
-        <li> Anmol Mittal Donatated Rs10 to GoGreen Box. Cheers to Him!</li>
-        <li> Keshav Sarraf requested rs3000 for seminar on renewable sources of energy.</li>
+        <li> Tesla promised investment of Rs 1 crore for 1 million tree plantations. </li>
+        <li> Anmol Mittal Donatated Rs 10 to GoGreen Box. Cheers to Him!</li>
+        <li> Keshav Sarraf requested Rs 3000 for seminar on renewable sources of energy.</li>
         <li> GoGreen joined hands with Greenify for plantation of 1 million tree.</li>
         <li> GoGreen funded Simpura village to build compost pits. </li>
-        <li> Suryaprakash Agarwal Donated Rs2000 to the GoGreen Box. Cheers to Him!</li>
+        <li> Suryaprakash Agarwal Donated Rs 2000 to the GoGreen Box. Cheers to Him!</li>
         <li> GoGreen sponsored Energy Club to distribute 50 solar lamps in unelectrified villages. </li>
         <li> Tesla promised investment of rs 1 crore for 1 million tree plantations. </li>
-        <li> Anmol Mittal Donatated Rs10 to GoGreen Box. Cheers to Him!</li>
-        <li> Keshav Sarraf requested rs3000 for seminar on renewable sources of energy.</li>
+        <li> Anmol Mittal Donatated Rs 10 to GoGreen Box. Cheers to Him!</li>
+        <li> Keshav Sarraf requested Rs 3000 for seminar on renewable sources of energy.</li>
         <li> GoGreen joined hands with Greenify for plantation of 1 million tree.</li>
         <li> GoGreen funded Simpura village to build compost pits. </li>
     </marquee>
