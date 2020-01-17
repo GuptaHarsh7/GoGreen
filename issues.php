@@ -1,12 +1,10 @@
 <?php include("header.php"); ?>
 <title>GoGreen</title>
-<?php include('topbar.php');?>
 <link rel="stylesheet" href="css/issues.css">
 <link rel="stylesheet" href="css/footer2.css">
-<title>Issues</title>
 </head>
 <body>
-
+  <?php include('topbar.php');?>
   <button type="button" id="fake" class="btn btn-success btn-sm disp-none" data-toggle="modal" data-target="#discuss" style="visibility:hidden"></button>
   <?php
     if(isset($_REQUEST['upvote']))
