@@ -27,7 +27,6 @@ body{
 #topbar{
   width: 100%;
   position: absolute;
-  top: 3%
 }
 
 #index #img {
@@ -123,6 +122,10 @@ body{
   to {
     opacity: 1;
   }
+}
+
+.data{
+  padding: 0px!important;
 }
 .data1, .data2, .data3, .data4, .data5, .data6, .data7{
   box-sizing: border-box;

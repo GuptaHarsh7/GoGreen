@@ -12,6 +12,7 @@ body{
 }
 .temp{
   width: 100%!important;
+  top: 0px !important;
 }
 
 .head{

@@ -1,5 +1,7 @@
 <div id="topbar">
-  <?php if(!isset($_SESSION["user"])) $_SESSION["user"] = null; ?>
+  <?php
+  ob_start();
+  if(!isset($_SESSION["user"])) $_SESSION["user"] = null; ?>
   <div class="temp">
     <div class="left">
       <div class="img"></div>
@@ -9,15 +11,14 @@
       <ul>
         <li><a href="events.php" class="btn btn-sm btn-outline-success">Event</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success">Challenges</a></li>
-        <li><a href="#" class="btn btn-sm btn-outline-success">Issues</a></li>
+        <li><a href="issues.php" class="btn btn-sm btn-outline-success">Issues</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success">Nearby</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">More</a></li>
         <?php  if($_SESSION["user"]!=null) {?>
         <li><a href="" class="btn btn-sm btn-outline-success"  data-toggle="modal" data-target="#exampleModal2">Profile</a></li>
-      <?php  } else { echo $_SESSION["user"];?>
+      <?php  } else { ?>
         <li><a href="login.php" class="btn btn-sm btn-outline-success" >Login </a></li>
       <?php } ?>
-
       </ul>
     </div>
     <div style="clear:both">
@@ -81,3 +82,4 @@ function myFunction() {
 </div>
 
 </div>
+<?php ob_end_flush(); ?>

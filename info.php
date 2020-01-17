@@ -21,7 +21,7 @@
 
          <div id="treatment" class="subcontent">
            <div class="treat">
-            Authorities here
+                        
           </div>
          </div>
 

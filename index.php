@@ -40,7 +40,7 @@
         </script>
       </div>
 
-      <div class="data" class="col-md-3">
+      <div class="data col-md-3">
           <div class="data1">
             <div class="left">
               <b>AQI</b>
