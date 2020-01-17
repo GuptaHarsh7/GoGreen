@@ -1,12 +1,13 @@
 <?php include("header.php"); ?>
+<title>GoGreen</title>
+<?php include('topbar.php');?>
 <link rel="stylesheet" href="css/issues.css">
 <title>Issues</title>
 </head>
 <body>
-<?php include('topbar.php');?>
-  <button type="button" id="fake" class="btn btn-success btn-sm" data-toggle="modal" data-target="#discuss" style="visibility:hidden">Discuss</button>
-  <?php
 
+  <button type="button" id="fake" class="btn btn-success btn-sm disp-none" data-toggle="modal" data-target="#discuss" style="visibility:hidden"></button>
+  <?php
     if(isset($_REQUEST['upvote']))
     {
       $upid=mysqli_real_escape_string($conn,$_REQUEST['upvote']);
@@ -15,22 +16,16 @@
       header("Location:issues.php");
     }
 
-     ?>
-
-    <?php
-
-    if(!(isset($_POST['filter']) && ! empty ($_POST['filter'])))
+    if(!(isset($_POST['filter']) && !empty ($_POST['filter'])))
     {
       $status='all';
       $category='all';
     }
-
     else
     {
       $status=mysqli_real_escape_string($conn,$_POST['status']);
       $category=mysqli_real_escape_string($conn,$_POST['category']);
     }
-    // echo $status." ".$category;
 
     if($category=='all')
     {
@@ -49,7 +44,6 @@
       $category=mysqli_real_escape_string($conn,$_POST['category']);
       $issue=mysqli_real_escape_string($conn,$_POST['issue']);
       $stack=mysqli_real_escape_string($conn,$_POST['stack']);
-      // echo "here";
       $files="";
       for($i=1;$i<=(int)$stack;$i++)
       {
@@ -145,17 +139,16 @@
     </div>
   </div>
 
+
+  <?php
+  if(isset($_REQUEST['discuss'])){
+    $id=mysqli_real_escape_string($conn,$_REQUEST['discuss']);
+    $selectedissue = $db->SinglerunQuery("select * from issue where isid='$id'");
+  ?>
   <div class="modal fade" id="discuss" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1400;">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <?php
-          $id=mysqli_real_escape_string($conn,$_REQUEST['discuss']);
-          // echo $id;
-          $selectedissue = $db->SinglerunQuery("select * from issue where isid='$id'");
-          // echo "hhh";
-          // echo $selectedissue['category'];
-          ?>
           <h5 class="modal-title" id="exampleModalLabel"><?= $selectedissue['heading'] ?></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -192,6 +185,7 @@
       </div>
     </div>
   </div>
+<?php } ?>
 
   <div id="solve" class="modal fade" role="dialog" style="z-index: 1600;">
   <div class="modal-dialog">
@@ -352,7 +346,6 @@
         </div>
 
         <div class="sidenav2">
-          <!-- <h4 style="text-align:left;">Hot Categories</h4> -->
           <ul class="list-group">
             <li class="list-group-item active">Hot Categories</li>
             <li class="list-group-item">Air Quality</li>
@@ -360,7 +353,6 @@
             <li class="list-group-item">Water</li>
           </ul>
           <br>
-          <!-- <h4 style="text-align:left;">Top Contributors</h4> -->
           <ul class="list-group">
             <li class="list-group-item active">Top Contributors</li>
             <li class="list-group-item">Dhruv</li>
@@ -379,7 +371,6 @@
   <script type="text/javascript">
   var og=0;
     function func() {
-      // var para = document.createElement("input");
       var element = document.getElementById("att");
       var count = document.getElementById('stack').value ;
 
