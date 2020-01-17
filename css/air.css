@@ -12,6 +12,11 @@
   display: none;
 }
 
+body{
+  background-image: url("../images/t1.jpg") !important;
+  background-size: cover!important;
+  padding: 0;
+}
 
 .sp{
   padding: 20px;
