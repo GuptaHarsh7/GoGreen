@@ -3,6 +3,7 @@ body{
   padding: 0px;
   font-family: 'Ubuntu', sans-serif;
   overflow-x: hidden;
+  padding-bottom: 200px;
 }
 
 .topmenu{
@@ -136,7 +137,7 @@ body{
 }
 
 .selectedtab {
-  background: white;
+  background: #C7E2CA;
 
   color: black;
 }

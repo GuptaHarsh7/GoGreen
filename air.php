@@ -21,7 +21,7 @@
     <hr>
     <div class="recent">
       <br>
-      <h3 style="text-align:center;">Recent Activities</h3>
+      
       <div class="box row">
           <div class="col-md-4 sp">
             <div class="innerbox">
