@@ -13,6 +13,7 @@ body{
   margin: 0;
   margin: auto;
   overflow: auto;
+  height: 680px;
 }
 #index .data{
   width: 19%;
