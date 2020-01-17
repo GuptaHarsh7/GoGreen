@@ -1,10 +1,10 @@
 <?php include("adminheader.php"); ?>
 <?php
-  if(!$_SESSION["admin"])
-  {
-  	$_SESSION["message"]="Please login to continue !";
-    header("Location:login.php");
-  }
+if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
+{
+  $_SESSION["message"]="Please login to continue !";
+  header("Location:login.php");
+}
 ?>
   <link rel="stylesheet" href="extra/style.css">
   <link rel="stylesheet" href="extra/dashboard.css">
@@ -65,14 +65,15 @@
       <div class="row">
           <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="white-box">
-                  <h3 class="box-title"> Issue Requests </h3>
+                  <h3 class="box-title"> Issues </h3>
                   <div class="table-responsive">
                       <table class="table">
                           <thead>
                               <tr>
-                                  <th>#</th>
+                                  <th>Issue Id</th>
                                   <th> User </th>
                                   <th> Title </th>
+                                  <th> Category </th>
                                   <th> Details </th>
                                   <th> Attachments </th>
                                   <th> Approve </th>
@@ -84,10 +85,49 @@
                                   <td>1</td>
                                   <td class="txt-oflo">Elite admin</td>
                                   <td class="txt-oflo">Elite admin</td>
-                                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#det" data-detail="ja" data-title="Hello">View</button></td>
-                                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#att" data-detail="event.php,issues.php,dashboard.php" data-title="yaha">View</button></td>
-                                  <td> <a href="issues.php?accept=1&eid=1"  class="btn btn-success"> Approve </a></td>
-                                  <td><a href="issues.php?accept=0&eid=1"  class="btn btn-danger"> Decline </a></td>
+                                  <td class="txt-oflo">tree planatation</td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#det" data-detail="ja" data-title="Hello">View</button></td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#att" data-detail="event.php,issues.php,dashboard.php" data-title="yaha">View</button></td>
+                                  <td> <a href="issues.php?accept=1&eid=1"  class="btn btn-outline-success"> Approve </a></td>
+                                  <td><a href="issues.php?accept=0&eid=1"  class="btn btn-outline-danger"> Decline </a></td>
+                              </tr>
+
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="white-box">
+                  <h3 class="box-title"> Issue Solve Request </h3>
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>USerId</th>
+                                  <th> Name </th>
+                                  <th> IssueId </th>
+                                  <th> Details </th>
+                                  <th> Attachments </th>
+                                  <th> Reward </th>
+                                  <th> Approve </th>
+                                  <th> Discard </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>1</td>
+                                  <td class="txt-oflo">Elite admin</td>
+                                  <td class="txt-oflo">23</td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#det" data-detail="ja" data-title="Hello">View</button></td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#att" data-detail="event.php,issues.php,dashboard.php" data-title="yaha">View</button></td>
+                                  <td> <input class="form-control display-1" type="number" value="100" style="font-size:20px; height:50px !important; max-width:120px;"></td>
+                                  <td> <a href="issues.php?accept=1&eid=1"  class="btn btn-outline-success"> Approve </a></td>
+                                  <td><a href="issues.php?accept=0&eid=1"  class="btn btn-outline-danger"> Decline </a></td>
                               </tr>
 
 

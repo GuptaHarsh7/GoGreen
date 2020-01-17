@@ -3,6 +3,7 @@ include("header.php");
 ?>
 <title>Events</title>
 <link rel="stylesheet" href="css/events.css">
+
 <link rel="stylesheet" href="css/footer2.css">
 </head>
 <body>
@@ -259,4 +260,5 @@ include("header.php");
 })
 </script>
 </div>
+
 <?php include('footer2.php') ?>

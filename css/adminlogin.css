@@ -39,14 +39,14 @@ body{
   text-align: center;
   background-color: lightgrey;
   width: 55%;
-  margin: 120px auto;
+  margin: 40px auto;
   height: auto;
   display: flex;
 }
 .login1{
   background: linear-gradient(to right, #859398, #283048);
   width: 40%;
-  padding: 70px 0;
+  padding: 20px 0;
 }
 .login2{
   padding: 55px 0;

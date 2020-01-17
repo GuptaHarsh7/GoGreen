@@ -1,10 +1,10 @@
 <?php include("adminheader.php"); ?>
 <?php
-  if(!$_SESSION["admin"])
-  {
-  	$_SESSION["message"]="Please login to continue !";
-  	header("Location:login.php");
-  }
+if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
+{
+  $_SESSION["message"]="Please login to continue !";
+  header("Location:login.php");
+}
 ?>
 
 <?php
@@ -16,8 +16,25 @@
     $city=mysqli_real_escape_string($conn,$_POST['city']);
     $start_date=mysqli_real_escape_string($conn,$_POST['start-date']);
     $end_date=mysqli_real_escape_string($conn,$_POST['end-date']);
-    $query="Insert into `event` (`name`,`type`,`venue`,`city`,`start-date`,`end-date`,`registrations`,`active`,`host`,`description`) values('$event_name','$type','$venue','$city','$start_date','$end_date','1','0','GoGreen','file')";
+    $target_dir = "event-attachments/";
+    $target_file = $target_dir . basename($_FILES["description"]["name"]);
+    $target_dir1 = "../event-attachments/";
+    $target_file1 = $target_dir1 . basename($_FILES["description"]["name"]);
+    if (move_uploaded_file($_FILES["description"]["tmp_name"], $target_file1)) {
+        // echo "The file ". basename( $_FILES["description"]["name"]). " has been uploaded.";
+    } else {
+        // echo "Sorry, there was an error uploading your file.";
+    }
+    $query="Insert into `event` (`name`,`type`,`venue`,`city`,`start-date`,`end-date`,`registrations`,`active`,`host`,`description`) values('$event_name','$type','$venue','$city','$start_date','$end_date','0','0','GoGreen','$target_file')";
     $result=$db->insertQuery($query);
+    header("Location:events.php");
+  }
+
+  if(isset($_GET['acc']) && isset($_GET['eid'])){
+    $eid = $_GET['eid'];
+    $acc = $_GET['acc'];
+    $sql="UPDATE `event` SET `active`='$acc' where evid='$eid'";
+    $result = $db->updateQuery($sql);
     header("Location:events.php");
   }
 ?>
@@ -33,6 +50,7 @@
 </head>
 <body>
 
+  <?php if(isset($_REQUEST['edit'])) include('editeventt.php'); ?>
   <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
       <div class="custom-menu">
@@ -74,6 +92,7 @@
             <h2 class="float-left"> Event Request </h2>
             <button type="button" class="btn btn-success btn-lg  float-right" data-toggle="modal" data-target="#hostevent">Host An Event!</button>
             <div style="clear:both"> </div>
+            <hr>
       </div>
 
 
@@ -102,24 +121,27 @@
                       <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link=<?=  $row['description'] ?>>View</a> </li>
                     </div>
                     <br>
-                    <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-info">Edit</a>
-                    <a href="events.php?acc=1&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-primary">Approve</a>
-                    <a href="events.php?acc=0&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Decline</a>
+                    <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-info">Edit</a>
+                    <a href="events.php?acc=1&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-primary">Approve</a>
+                    <a href="events.php?acc=3&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-danger">Decline</a>
                   </div>
                 </div>
               </div>
           </div>
           <?php
             }}
+
           ?>
         </div>
 
-        <div class="row bg-title">
-                <h2>Live Events</h2> <br> <br> <br>
+        <div class="bg-title">
+              <h2 class="float-left"> Live Events </h2>
+              <div style="clear:both"> </div>
+              <hr>
         </div>
         <div class="row">
           <?php
-            $sql = "SELECT * FROM event WHERE active = '0'";
+            $sql = "SELECT * FROM event WHERE active = '1'";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
               while($row = mysqli_fetch_assoc($result)) {
@@ -136,18 +158,19 @@
                         <li><b>Venue:</b> <?= $row['venue'] ?> </li>
                         <li><b>Registration Fees:</b> N/A </li>
                         <li><b>Hosted By:</b> <?= $row['host'] ?> </li>
-                        <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link=<?=  $row['description'] ?>>View</a> </li>
+                        <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link="<?=$row['description']?>" >View</a> </li>
                       </div>
                       <br>
-                      <a href="editevent.php?eid=<?= $row['evid'] ?>" class="btn btn-sm btn-info">Edit</a>
-                      <a href="events.php?acc=4&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-primary">Users</a>
-                      <a href="events.php?acc=3&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-danger">Cancel</a>
+                      <a href="events.php?edit=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-info">Edit</a>
+                      <a href="events.php?acc=4&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-primary">Users</a>
+                      <a href="events.php?acc=2&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-success">Complete</a>
                     </div>
                   </div>
                 </div>
             </div>
             <?php
               }}
+
             ?>
           </div>
 
@@ -166,7 +189,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form class="form" method="post" action="events.php">
+                <form class="form" method="post" action="events.php" enctype="multipart/form-data">
                   <div class="row">
                   	<div class="col-sm-12">
                     	<div class="form-group">
@@ -250,6 +273,7 @@
                 </object>
               </div>
               <div class="modal-footer">
+                <a type="button" class="download btn btn-primary" href="" download>Download</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </form>
@@ -268,7 +292,8 @@
       var link = button.data('link');
       var modal = $(this);
       modal.find('.modal-title').text('Details of ' + title);
-      $("object").repaceWith('<object width="600" height="600" data="'+link+'"></object>');
+      $(".download").attr('href',"../"+link);
+      $( "object" ).replaceWith('<object width="100%" height="400" data="../' + link + '"></object>');
     });
   </script>
   <script src="../lib/jquery.min.js"></script>
