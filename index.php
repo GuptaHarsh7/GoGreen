@@ -135,7 +135,7 @@
     <div class="col-md-8">
       <div class="scrollbox shadow-lg p-3 mb-5 rounded ">
         <marquee direction="up" height="100%" scrolldelay="200">
-            <li> Suryaprakash Agarwal Donated Rs2000 to the GoGreen Box. Cheers to Him!</li>
+            <li> Suryaprakash Agarwal Donated Rs20000 to the GoGreen Box. Cheers to Him!</li>
             <li> GoGreen sponsored Energy Club to distribute 50 solar lamps in unelectrified villages. </li>
             <li> Tesla promised investment of rs 1 crore for 1 million tree plantations. </li>
             <li> Anmol Mittal Donatated Rs10 to GoGreen Box. Cheers to Him!</li>
