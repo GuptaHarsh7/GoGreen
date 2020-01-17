@@ -1,0 +1,51 @@
+body{
+  padding-bottom: 100px;
+}
+.centerbox{
+  padding-top: 80px;
+  text-align: center;
+}
+
+.centerbox a{
+  margin-left: 40px;
+
+}
+
+
+.recent{
+  width: 80%;
+  margin: auto;
+}
+
+.scrollbox{
+  width: 70%;
+  margin: auto;
+  border: 2px solid #2c774b;
+  height: 400px;
+  border-radius: 20px;
+  overflow-y: hidden;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.scrollbox li{
+  font-weight:600;
+  font-size: 20px;
+  width: 100%;
+  padding: 15px;
+  list-style-type: none;
+  border-bottom: 2px solid #2c774b;
+  cursor: pointer;
+}
+
+.scrollbox li:hover{
+  color: green;
+}
+
+@media (min-width: 576px){
+  #index .modal-dialog {
+    top: 100px;
+      max-width: 800px !important;
+      margin: 1.75rem auto;
+  }
+}

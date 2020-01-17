@@ -4,7 +4,7 @@ body{
   padding: 0;
   padding-top: 40px;
   padding-bottom:  100px;
-  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%) !important;
 }
 
 .usercontainer{
@@ -67,7 +67,16 @@ body{
   padding: 0;
   margin: 0;
 }
-#topbar a{
+
+#topbar .left a{
+  text-decoration: none;
+  color: black;
+}
+#topbar .left a:hover{
+  text-decoration: none;
+  color: green;
+}
+#topbar .right a{
   text-decoration: none;
   border: 2px solid #2c774b;
   padding: 0.25em 0.6em;
@@ -104,7 +113,7 @@ body{
 
 #topbar .modal-body a:hover{
   color: #0e3e41;
-  
+
 }
 
 #topbar .modal-content{

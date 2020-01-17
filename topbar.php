@@ -2,11 +2,11 @@
   <div class="temp">
     <div class="left">
       <div class="img"></div>
-      GoGreen
+      <a href="index.php"> GoGreen </a>
     </div>
     <div class="right">
       <ul>
-        <li><a href="#" class="btn btn-sm btn-outline-success">Event</a></li>
+        <li><a href="events.php" class="btn btn-sm btn-outline-success">Event</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success">Challenges</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success">Issues</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success">Nearby</a></li>
@@ -43,12 +43,12 @@ function myFunction() {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span> </button>
         <ul>
-          <li><a href="#" class="">Event</a></li><br>
-          <li><a href="#" class="">Challenges</a></li><br>
+          <li><a href="https://earth.nullschool.net"> Web View </a></li>
+          <li><a href="info.php" class="">Envirentopedia</a></li><br>
+          <li><a href="air.php" class="">Air</a></li><br>
           <li><a href="#" class="">Issues</a></li><br>
           <li><a href="#" class="">Nearby</a></li><br>
-          <li><a href="#" class="">More</a></li><br>
-          <li><a href="https://earth.nullschool.net/">Login</a></li>
+          <li><a href="gogreenbox.php" class="">GoGreen Box</a></li><br>
         </ul>
       </div>
     </div>
