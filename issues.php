@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="css/footer2.css">
 </head>
 <body>
-  <?php include('topbar.php');?>
   <button type="button" id="fake" class="btn btn-success btn-sm disp-none" data-toggle="modal" data-target="#discuss" style="visibility:hidden"></button>
   <?php
     if(isset($_REQUEST['upvote']))
@@ -68,7 +67,7 @@
       header("Location:issues.php");
     }
   ?>
-
+  <?php include('topbar.php');?>
   <div class="modal fade" id="raiseissue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -137,8 +136,6 @@
       </div>
     </div>
   </div>
-
-
   <?php
   if(isset($_REQUEST['discuss'])){
     $id=mysqli_real_escape_string($conn,$_REQUEST['discuss']);
@@ -319,7 +316,6 @@
       </div>
 
         <div class="issues col-md-7">
-
           <?php
             while($row = mysqli_fetch_assoc($result))
             {
@@ -361,7 +357,6 @@
         </div>
     </div>
   </div>
-
   <?php if(isset($_REQUEST['discuss'])){ ?>
    <script type="text/javascript">
      document.getElementById('fake').click();
