@@ -160,4 +160,5 @@
 
   <br><br>
 </div>
+</div>
 <?php include('footer2.php') ?>
