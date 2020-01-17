@@ -10,7 +10,31 @@
 
 <div class="img">
   <img src="images/bg_header.jpg" width="100%" height="780px;">
-    <div class="centered">GoGreen</div>
+  <div class="bigcenter">
+    <div class="centered">GoGreen </div>
+      <div id="bottom-quote" class="centered2">
+        <script>
+          var quote = "";
+          var xhttp = new XMLHttpRequest();
+          xhttp.open("GET", "https://quota.glitch.me/random", true); //free quote api
+          xhttp.send(null);
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              quote = new String(xhttp.responseText);
+              var p = JSON.parse(xhttp.responseText);
+              //finalString = quote.substring(14).replace("quoteAuthor", "").replace(/"/g, "").replace('.,:', ' Author: ').replace("}", "");
+              //make the string prettier
+              $('#rand-quote').text('"' + p["quoteText"]+ '"');
+              $('#rand-author').text("- " +p["quoteAuthor"]);
+            }
+          };
+        </script>
+        <div class="blockquote text-black" id="rand-quote" ></div> </div>
+      <div class="centered3">  <div class="blockquote text-black" id="rand-author" ></div>
+      </div>
+  </div>
+
+
       <div class="container">
         <div class="chevron"></div>
         <div class="chevron"></div>
@@ -106,25 +130,34 @@
 
 <div class="recent">
   <br>
-  <h3 style="text-align:center;"> Greeny News </h3>
-  <div class="scrollbox">
-    <marquee direction="up">
-        <li> Suryaprakash Agarwal Donated Rs2000 to the GoGreen Box. Cheers to Him!</li>
-        <li> GoGreen sponsored Energy Club to distribute 50 solar lamps in unelectrified villages. </li>
-        <li> Tesla promised investment of rs 1 crore for 1 million tree plantations. </li>
-        <li> Anmol Mittal Donatated Rs10 to GoGreen Box. Cheers to Him!</li>
-        <li> Keshav Sarraf requested rs3000 for seminar on renewable sources of energy.</li>
-        <li> GoGreen joined hands with Greenify for plantation of 1 million tree.</li>
-        <li> GoGreen funded Simpura village to build compost pits. </li>
-        <li> Suryaprakash Agarwal Donated Rs2000 to the GoGreen Box. Cheers to Him!</li>
-        <li> GoGreen sponsored Energy Club to distribute 50 solar lamps in unelectrified villages. </li>
-        <li> Tesla promised investment of rs 1 crore for 1 million tree plantations. </li>
-        <li> Anmol Mittal Donatated Rs10 to GoGreen Box. Cheers to Him!</li>
-        <li> Keshav Sarraf requested rs3000 for seminar on renewable sources of energy.</li>
-        <li> GoGreen joined hands with Greenify for plantation of 1 million tree.</li>
-        <li> GoGreen funded Simpura village to build compost pits. </li>
-    </marquee>
+  <h3 style="text-align:center; font-weight:bold"> Greeny News </h3>
+  <div class="row innerbox">
+    <div class="col-md-8">
+      <div class="scrollbox shadow-lg p-3 mb-5 rounded ">
+        <marquee direction="up" height="100%" scrolldelay="200">
+            <li> Suryaprakash Agarwal Donated Rs2000 to the GoGreen Box. Cheers to Him!</li>
+            <li> GoGreen sponsored Energy Club to distribute 50 solar lamps in unelectrified villages. </li>
+            <li> Tesla promised investment of rs 1 crore for 1 million tree plantations. </li>
+            <li> Anmol Mittal Donatated Rs10 to GoGreen Box. Cheers to Him!</li>
+            <li> Keshav Sarraf requested rs3000 for seminar on renewable sources of energy.</li>
+            <li> GoGreen joined hands with Greenify for plantation of 1 million tree.</li>
+            <li> GoGreen funded Simpura village to build compost pits. </li>
+            <li> Suryaprakash Agarwal Donated Rs2000 to the GoGreen Box. Cheers to Him!</li>
+            <li> GoGreen sponsored Energy Club to distribute 50 solar lamps in unelectrified villages. </li>
+            <li> Tesla promised investment of rs 1 crore for 1 million tree plantations. </li>
+            <li> Anmol Mittal Donatated Rs10 to GoGreen Box. Cheers to Him!</li>
+            <li> Keshav Sarraf requested rs3000 for seminar on renewable sources of energy.</li>
+            <li> GoGreen joined hands with Greenify for plantation of 1 million tree.</li>
+            <li> GoGreen funded Simpura village to build compost pits. </li>
+        </marquee>
+      </div>
+    </div>
+    <div class="weather col-md-4">
+      <div id="ml_e4e2c7b3" style=""> <div style="padding:0;margin:0;" id="ml_e4e2c7b3_i" v='1.1' a='{"t":"a","lang":"en","ids":[],"a_bg":"#FFFFFF","a_br_c":"#43A047","a_n_b":"#43A047","a_icon":"#FFFFFF00","a_con":"#43A047","a_inter":"#FFFFFF00","a_n_c":"#FFFFFF","a_icon_color":"#000000","a_con_c":"#FFFFFF","a_int_h_color":"#000000","a_int_temp_color":"#000000"}'></div><div id="ml_e4e2c7b3_c" style="padding:0;margin:0;padding:7px 5px;"><img src="https://weatherlabs.in/assets/img/logo_z_b.svg" style="width:15px;opacity:0.7;margin-right:5px;position:relative;top:1px;display:inline-block;"><a class="d-none" href="https://weatherlabs.in/new_york_city/today/" style="color:grey;font-size:12px;text-decoration:none;" target="_blank" id="ml_e4e2c7b3_u">Weather Today</a></div></div><script async src="https://app.weatherlabs.in/js/?id=ml_e4e2c7b3"></script>
+        <div class="" style="clear:both">
+    </div>
   </div>
+
   <br><br>
 </div>
 <?php include('footer2.php') ?>
