@@ -14,7 +14,7 @@
         <li><a href="#" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">More</a></li>
         <?php  if($_SESSION["user"]!=null) {?>
         <li><a href="" class="btn btn-sm btn-outline-success"  data-toggle="modal" data-target="#exampleModal2">Profile</a></li>
-      <?php  } else { echo $_SESSION["user"];?>
+      <?php  } else { ?>
         <li><a href="login.php" class="btn btn-sm btn-outline-success" >Login </a></li>
       <?php } ?>
 

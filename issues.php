@@ -2,6 +2,7 @@
 <title>GoGreen</title>
 <?php include('topbar.php');?>
 <link rel="stylesheet" href="css/issues.css">
+<link rel="stylesheet" href="css/footer2.css">
 <title>Issues</title>
 </head>
 <body>
@@ -256,10 +257,9 @@
 </div>
 </div>
 
-  <div class="container">
-    <div class="issue-body">
-
-        <div class="sidenav">
+  <div class="container1" style="min-height:800px">
+    <div class="issue-body row">
+        <div class="sidenav col-md-3">
           <h4 style="text-align:left;">Filter Issues</h4>
           <form method="post" action="issues.php">
             <p>Status</p>
@@ -317,8 +317,10 @@
 
 
           </form>
-        </div>
-        <div class="issues">
+
+      </div>
+
+        <div class="issues col-md-7">
 
           <?php
             while($row = mysqli_fetch_assoc($result))
@@ -345,7 +347,7 @@
         <?php } ?>
         </div>
 
-        <div class="sidenav2">
+        <div class="sidenav2 col-md-2">
           <ul class="list-group">
             <li class="list-group-item active">Hot Categories</li>
             <li class="list-group-item">Air Quality</li>

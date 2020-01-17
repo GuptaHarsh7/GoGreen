@@ -124,6 +124,10 @@ body{
     opacity: 1;
   }
 }
+
+.data{
+  padding: 0px!important;
+}
 .data1, .data2, .data3, .data4, .data5, .data6, .data7{
   box-sizing: border-box;
   border: 1px solid white;
