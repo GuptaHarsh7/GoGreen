@@ -72,11 +72,6 @@ body{
   background-size: cover;
   }
 
-#info  img{
-    width: 100%;
-    height: 400px;
-  }
-
 .centered1 {
    font-size: 75px;
    position: absolute;
@@ -304,4 +299,37 @@ text-decoration:none;
 .head a:visited{
 color:black !important;
 text-decoration:none
+}
+
+#doctors .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  justify-content: center;
+  margin: 0 70px;
+}
+
+h5, h6{
+  text-align: center;
+}
+.flex-container > div {
+  overflow-x: hidden;
+  margin: 15px 12px;
+  background-color: white;
+  overflow: auto;
+  padding: 10px;
+  width: 400px;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+.upper{
+  background-image: url(images/testing.jpg);
+  background-size: contain;
+  background-position: center center;
+  overflow: auto;
+}
+.lower{
+    margin-top: 10px;
+  overflow-x: hidden;
 }

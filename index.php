@@ -127,6 +127,4 @@
   </div>
   <br><br>
 </div>
-
-<br><br>
 <?php include('footer2.php') ?>

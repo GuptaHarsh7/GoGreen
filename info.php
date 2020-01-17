@@ -27,13 +27,97 @@
 
         <div id="hospitals" class="subcontent">
           <div class="treat">
-           Standards here
+            <div class="flex-container">
+              <div style="background-color: yellow;">
+                <img src="images/" alt="">
+              </div>
+              <div>2</div>
+              <div>3</div>
+            </div>
          </div>
        </div>
 
        <div id="doctors" class="subcontent">
          <div class="treat">
-          Measures here
+           <div class="flex-container">
+             <div class="xx">
+               <div class="uppper">
+                 <h5>AIR MEASURES</h5>
+                 <img src="images/testing.jpg" width="380" height="220">
+               </div>
+               <div class="lower">
+                 <h6><b>5 Things to do in 2020 to help reduce air pollution</b></h6>
+                 <br>
+                 <ul>
+                   <li>Reduce your Driving</li>
+                   <li>Don't Idle Your Car</li>
+                   <li>Don't Burn Wood</li>
+                   <li>Trip Chain</li>
+                   <li>Take Public Transport</li>
+                 </ul>
+                 <br>
+                 <h5>TURN OFF YOUR KEY BE IDLE FREE</h5>
+               </div>
+             </div>
+             <div class="xx">
+               <div class="uppper">
+                 <h5>WATER MEASURES</h5>
+                 <img src="images/water.png" width="380" height="220">
+               </div>
+               <div class="lower">
+                 <h6><b>5 Minimum control measures</b></h6>
+                 <br>
+                 <ul>
+                   <li>Public Education</li>
+                   <li>Public Environment</li>
+                   <li>Illicit Discharge detection and Elimation</li>
+                   <li>Contruction site discharge control</li>
+                   <li>Good Housekeeping</li>
+                 </ul>
+                 <br>
+                 <h5>SAVE WATER SAVE LIFE</h5>
+               </div>
+             </div>
+             <div class="xx">
+               <div class="uppper">
+                 <h5>SOIL MEASURES</h5>
+                 <img src="images/soil.jpg" width="380" height="220">
+               </div>
+               <div class="lower">
+                 <h6><b>5 control measures</b></h6>
+                 <br>
+                 <ul>
+                   <li>Proper Solid Waste Treatment</li>
+                   <li>Ensure proper investigation of land</li>
+                   <li>Strictly control the pollution of new soil</li>
+                   <li>Transfer treatment costs to companies</li>
+                   <li>Strengthen policies that manage pollution</li>
+                 </ul>
+                 <br>
+                 <h5>SAVE MOTHER EARTH</h5>
+               </div>
+             </div>
+             <div class="xx">
+               <div class="uppper">
+                 <h5>DEFORESTRATION</h5>
+                 <img src="images/deforestration.jpg" width="380" height="220">
+               </div>
+               <div class="lower">
+                 <h6><b>Control of Deforestration</b></h6>
+                 <br>
+                 <ul>
+                   <li>Control an overgrazing in forest areas</li>
+                   <li>Check on reckless cutting of trees</li>
+                   <li>Check mining in forest areas</li>
+                   <li>Control of construction of large dams in forest</li>
+                   <li>Probihiting of agriculture in forest</li>
+                 </ul>
+                 <br>
+                 <h5>SAVE TREES SAVE LIFE</h5>
+               </div>
+             </div>
+             </div>
+           </div>
         </div>
       </div>
 
