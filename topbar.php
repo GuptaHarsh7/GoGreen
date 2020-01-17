@@ -69,8 +69,8 @@ function myFunction() {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span> </button>
         <ul>
-          <li><a href="profile.php"> My Profile </a></li>
-          <li><a href="info.php" class=""> Contributions </a></li><br>
+          <li><a href="profile.php" target="_blank"> My Profile </a></li>
+          <li><a href="activities.php" class="" target="_blank"> My Activities </a></li><br>
           <li><a href="air.php" class=""> Streak Box </a></li><br>
           <li><a href="#" class=""> Pending Requests </a></li><br>
           <li><a href="#" class=""> Community </a></li><br>

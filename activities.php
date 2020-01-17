@@ -19,16 +19,16 @@
 
   <div class="container">
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#menu1"><i class="fas fa-user"></i> Profile</a></li>
+      <!-- <li class="active"><a data-toggle="tab" href="#menu1"><i class="fas fa-user"></i> Profile</a></li> -->
       <!-- <li><a data-toggle="tab" href="#menu2"><i class="fas fa-utensils"></i> Mess Council</a></li> -->
-      <!-- <li><a data-toggle="tab" href="#menu3"><i class="fas fa-chart-line"></i> My Activities</a></li> -->
+      <li class="active"><a data-toggle="tab" href="#menu3"><i class="fas fa-chart-line"></i> My Activities</a></li>
       <!-- <li><a data-toggle="tab" href="#menu4"><i class="fas fa-poll"></i> Complaints</a></li> -->
       <!-- <li><a data-toggle="tab" href="#menu5"><i class="fas fa-poll"></i> Student Pivot</a></li> -->
       <li><a  href="/"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
     </ul>
 
     <div class="tab-content">
-      <div id="menu1" class="tab-pane fade in active">
+      <!-- <div id="menu1" class="tab-pane fade in active">
         <div class="photo">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="User">
         </div>
@@ -58,7 +58,7 @@
             <p>AB+</p>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- <div id="menu2" class="tab-pane fade">
         <h2>Mess Council</h2>
         <table class="table table-striped table-bordered">
@@ -125,7 +125,7 @@
         </table>
 
       </div> -->
-      <div id="menu3" class="tab-pane fade">
+      <div id="menu3" class="tab-pane fade in active">
         <h3>My Activities</h3>
 
         <div class="tab">
