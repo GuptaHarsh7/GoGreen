@@ -264,4 +264,5 @@ include("header.php");
 })
 </script>
 </div>
+
 <?php include('footer2.php') ?>
