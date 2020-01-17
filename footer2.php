@@ -48,10 +48,10 @@
 
 				<div class="footer-icons">
 
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-github"></i></a>
+					<a href="#"><i class="fab fa-facebook-f"></i></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></i></a>
+					<a href="#"><i class="fab fa-linkedin-in"></i></i></a>
+					<a href="#"><i class="fab fa-github"></i></i></a>
 
 				</div>
 
