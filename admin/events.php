@@ -105,6 +105,8 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
           $result = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) {
+              $uuid=$row['host'];
+              $hostdata = $db->SinglerunQuery("select * from user where uid='$uuid'");
         ?>
           <div class="col-lg-3 col-sm-6 col-xs-12">
               <div style="padding:15px">
@@ -113,7 +115,7 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
                   <div class="card-body">
                     <h5 class="card-title"><?= $row['name'] ?></h5>
                     <div class="card-text">
-                      <li><b>Start Time:</b><?= $row['start-date'] ?></li>
+                      <li><b>Start Time:</b><?= $hostdata['name'] ?></li>
                       <li><b>End Time:</b> <?= $row['end-date'] ?></li>
                       <li><b>Venue:</b> <?= $row['venue'] ?> </li>
                       <li><b>Registration Fees:</b> N/A </li>
@@ -145,6 +147,8 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
               while($row = mysqli_fetch_assoc($result)) {
+                $uuid=$row['host'];
+                $hostdata = $db->SinglerunQuery("select * from user where uid='$uuid'");
           ?>
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div style="padding:15px">
@@ -157,12 +161,12 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
                         <li><b>End Time:</b> <?= $row['end-date'] ?></li>
                         <li><b>Venue:</b> <?= $row['venue'] ?> </li>
                         <li><b>Registration Fees:</b> N/A </li>
-                        <li><b>Hosted By:</b> <?= $row['host'] ?> </li>
+                        <li><b>Hosted By:</b> <?= $hostdata['name'] ?> </li>
                         <li><b>Event details:</b> <a href="" class="text-primary" data-toggle="modal" data-target="#view" data-title=<?=  $row['name'] ?> data-link="<?=$row['description']?>" >View</a> </li>
                       </div>
                       <br>
                       <a href="events.php?edit=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-info">Edit</a>
-                      <a href="events.php?acc=4&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-primary">Users</a>
+                      <a href="events.php?users=1&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-primary">Users</a>
                       <a href="events.php?acc=2&eid=<?= $row['evid'] ?>" class="btn btn-sm btn-outline-success">Complete</a>
                     </div>
                   </div>
@@ -280,6 +284,42 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
             </div>
           </div>
         </div>
+<button type="button" id="fake" class="btn btn-success btn-sm disp-none" data-toggle="modal" data-target="#users" style="visibility:hidden"></button>
+        <?php
+          if(isset($_REQUEST['users']))
+          {
+            $eid = $_GET['eid'];
+            $query="Select * from registrations where eid='$eid'";
+            $users=mysqli_query($conn, $query);
+        ?>
+        <script type="text/javascript">
+          document.getElementById('fake').click();
+        </script>
+        <div class="modal fade" id="users" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Users</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body details">
+                <object>
+
+                </object>
+              </div>
+              <div class="modal-footer">
+                <a type="button" class="download btn btn-primary" href="" download>Download</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+      <?php } ?>
 
     </div>
   </div>

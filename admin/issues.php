@@ -20,7 +20,9 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
     if(isset($_REQUEST['eid']))
     {
       $type=mysqli_real_escape_string($conn,$_GET["accept"]);
-      //echo "<script> confirm('heelo ".$type."') </script>";
+      $eid=mysqli_real_escape_string($conn,$_GET["eid"]);
+      $updatequery="Update `issue` set status='$type' where `isid`='$eid'";
+      $update=$db->updateQuery($updatequery);
       header("Location:issues.php");
     }
   ?>
@@ -80,18 +82,27 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
                                   <th> Discard </th>
                               </tr>
                           </thead>
+                          <?php
+                            $query="Select * from issue where status=0";
+                            $issues=mysqli_query($conn, $query);
+                          ?>
                           <tbody>
+                            <?php while($row = mysqli_fetch_assoc($issues)) {
+                              $uuid=$row['host'];
+                              $hostdata = $db->SinglerunQuery("select * from user where uid='$uuid'");
+                              // $att=(explode(',',$row['attachments']))[0];
+                              ?>
                               <tr>
-                                  <td>1</td>
-                                  <td class="txt-oflo">Elite admin</td>
-                                  <td class="txt-oflo">Elite admin</td>
-                                  <td class="txt-oflo">tree planatation</td>
-                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#det" data-detail="ja" data-title="Hello">View</button></td>
-                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#att" data-detail="event.php,issues.php,dashboard.php" data-title="yaha">View</button></td>
-                                  <td> <a href="issues.php?accept=1&eid=1"  class="btn btn-outline-success"> Approve </a></td>
-                                  <td><a href="issues.php?accept=0&eid=1"  class="btn btn-outline-danger"> Decline </a></td>
+                                  <td><?= $row['isid'] ?></td>
+                                  <td class="txt-oflo"><?= $hostdata['name'] ?></td>
+                                  <td class="txt-oflo"><?= $row['heading'] ?></td>
+                                  <td class="txt-oflo"><?= $row['category'] ?></td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#det" data-title="<?= $row['heading'] ?>" data-category="<?= $row['category'] ?>" data-issue="<?= $row['issue'] ?>">View</button></td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#att"  data-att="<?= $row['attachments'] ?>" data-title="<?= $row['heading'] ?>">View</button></td>
+                                  <td> <a href="issues.php?accept=1&eid=<?= $row['isid'] ?>"  class="btn btn-outline-success"> Approve </a></td>
+                                  <td><a href="issues.php?accept=3&eid=<?= $row['isid'] ?>"  class="btn btn-outline-danger"> Decline </a></td>
                               </tr>
-
+                              <?php } ?>
 
                           </tbody>
                       </table>
@@ -151,7 +162,8 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
                 </button>
               </div>
               <div class="modal-body details">
-
+                <p id="cat"></p>
+                <p id="iss"></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -191,23 +203,25 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
     console.log("here");
     var button = $(event.relatedTarget);
     var title = button.data('title');
-    var recipient = button.data('detail');
+    var issue = button.data('issue');
+    var category = button.data('category');
     var modal = $(this);
-    modal.find('.modal-title').text('Details of ' + title);
-    modal.find('.details').text(recipient)
+    modal.find('.modal-title').text(title);
+    modal.find('#cat').text("Category - "+category);
+    modal.find('#iss').text(issue);
   });
 
   $('#att').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
-    var recipient = button.data('detail')
+    var att = button.data('att')
     var title = button.data('title')
     var modal = $(this)
     modal.find('.modal-title').text('Attachments of ' + title);
     var count = 1;
-    var res = recipient.split(",");
+    var res = att.split(",");
     modal.find('.details').empty();
     res.forEach(function myfunction(item){
-      modal.find('.details').append("<h4><a target='_blank' href='"+item+"'> Attachment "+count+"</a></h4><br>");
+      modal.find('.details').append("<h4><a target='_blank' href='../"+item+"'> Attachment "+count+"</a></h4><br>");
       count++;
     });
   });
