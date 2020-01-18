@@ -292,7 +292,7 @@ include("header.php");
   var modal = $(this)
   modal.find('.modal-title').text(name)
   // modal.find('.modal-body object').data(description)
-  $( "object" ).replaceWith('<object width="400" height="400" data="' + description + '"></object>');
+  $( "object" ).replaceWith('<object width="100%" height="400" data="' + description + '"></object>');
   modal.find('.modal-body input').val(name)
 })
 

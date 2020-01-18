@@ -1,12 +1,16 @@
 body{
   min-height: 800px;
-  padding-bottom: 200px;
+  background-image:  url("../images/scroll.jpg");
+  background-size: contain;
 }
 .centerbox{
   padding-top: 80px;
   text-align: center;
 }
 
+#index{
+  padding-bottom: 100px;
+}
 .centerbox a{
   margin-left: 40px;
 
@@ -27,6 +31,9 @@ body{
   overflow-y: hidden;
   margin-top: 40px;
   padding: 20px;
+  border-radius: 70px 10px 70px 10px !important;
+  max-width: 800px;
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
 
 .scrollbox li{

@@ -107,7 +107,7 @@
       <div class="row">
           <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="white-box">
-                  <h3 class="box-title">Recent sales</h3>
+                  <h3 class="box-title">Recent funds</h3>
                   <div class="table-responsive">
                       <table class="table">
                           <thead>
@@ -123,21 +123,21 @@
                               <tr>
                                   <td>1</td>
                                   <td class="txt-oflo">Elite admin</td>
-                                  <td>SALE</td>
+                                  <td>PROCESSING</td>
                                   <td class="txt-oflo">April 18, 2017</td>
                                   <td><span class="text-success">$24</span></td>
                               </tr>
                               <tr>
                                   <td>2</td>
                                   <td class="txt-oflo">Real Homes WP Theme</td>
-                                  <td>EXTENDED</td>
+                                  <td>APPROVED</td>
                                   <td class="txt-oflo">April 19, 2017</td>
                                   <td><span class="text-info">$1250</span></td>
                               </tr>
                               <tr>
                                   <td>3</td>
                                   <td class="txt-oflo">Ample Admin</td>
-                                  <td>EXTENDED</td>
+                                  <td>APPROVED</td>
                                   <td class="txt-oflo">April 19, 2017</td>
                                   <td><span class="text-info">$1250</span></td>
                               </tr>
@@ -151,14 +151,14 @@
                               <tr>
                                   <td>5</td>
                                   <td class="txt-oflo">Hosting press html</td>
-                                  <td>SALE</td>
+                                  <td>PROCESSING</td>
                                   <td class="txt-oflo">April 21, 2017</td>
                                   <td><span class="text-success">$24</span></td>
                               </tr>
                               <tr>
                                   <td>6</td>
                                   <td class="txt-oflo">Digital Agency PSD</td>
-                                  <td>SALE</td>
+                                  <td>PROCESSING</td>
                                   <td class="txt-oflo">April 23, 2017</td>
                                   <td><span class="text-danger">-$14</span></td>
                               </tr>

@@ -95,6 +95,7 @@
     }
     }
     .scroll-list__item {
+      overflow: hidden;
     width: 100%;
     height: 155px;
     display: block;

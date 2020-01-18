@@ -1,6 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 * {
-   font-family: cursive !important;;
+   font-family: cursive;
+}
+
+i{
+  font-family: "Font Awesome 5 Brands" !important;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free" !important;
 }
 
 #footer2 section {

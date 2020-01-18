@@ -20,7 +20,7 @@
       <div class="scroll-list__item js-scroll-list-item">
         <h6 style="text-align:center; font-weight:bold;"> <?= $row['name'] ?> (200 Green Points)</h6><hr>
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-8" style="overflow: hidden;">
             <p> <?= $row['description'] ?>  </p>
           </div>
           <div class="col-md-4">

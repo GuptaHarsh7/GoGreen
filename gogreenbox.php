@@ -1,6 +1,7 @@
 <?php include("header.php"); ?>
 <title>GoGreen</title>
 <link rel="stylesheet" href="css/gogreenbox.css">
+<link rel="stylesheet" href="css/footer2.css">
 </head>
 <body>
 <?php include('topbar.php');?>
@@ -90,4 +91,4 @@
 </div>
 
 
-<?php include('footer.php')?>
+<?php include('footer2.php')?>

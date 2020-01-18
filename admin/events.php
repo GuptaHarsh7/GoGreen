@@ -115,7 +115,7 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
                   <div class="card-body">
                     <h5 class="card-title"><?= $row['name'] ?></h5>
                     <div class="card-text">
-                      <li><b>Start Time:</b><?= $hostdata['name'] ?></li>
+                      <li><b>Start Time: </b><?= $row['start-date'] ?></li>
                       <li><b>End Time:</b> <?= $row['end-date'] ?></li>
                       <li><b>Venue:</b> <?= $row['venue'] ?> </li>
                       <li><b>Registration Fees:</b> N/A </li>
