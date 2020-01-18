@@ -17,9 +17,11 @@ include("header.php");
 <body>
 
 <?php
-  include 'topbar.php';
   if(isset($_POST['host']) && ! empty ($_POST['host']))
   {
+    if(!isset($_SESSION["user"]) || !$_SESSION["user"] || $_SESSION["user"]==null){
+      header("Location:login.php");
+    }
     $event_name=mysqli_real_escape_string($conn,$_POST['event-name']);
     $type=mysqli_real_escape_string($conn,$_POST['type']);
     $venue=mysqli_real_escape_string($conn,$_POST['venue']);
@@ -34,19 +36,33 @@ include("header.php");
     } else {
         // echo "Sorry, there was an error uploading your file.";
     }
-    $query="Insert into `event` (`name`,`type`,`venue`,`city`,`start-date`,`end-date`,`registrations`,`active`,`host`,`description`) values('$event_name','$type','$venue','$city','$start_date','$end_date','0','0','dhruv','$target_file')";
+    $host=$_SESSION["user"];
+    $query="Insert into `event` (`name`,`type`,`venue`,`city`,`start-date`,`end-date`,`registrations`,`active`,`host`,`description`) values('$event_name','$type','$venue','$city','$start_date','$end_date','0','0','$host','$target_file')";
     $result=$db->insertQuery($query);
     header("Location:events.php");
   }
 
   if(isset($_POST['register']) && ! empty ($_POST['register']))
   {
+    if(!isset($_SESSION["user"]) || !$_SESSION["user"] || $_SESSION["user"]==null){
+      header("Location:login.php");
+    }
     $eid=$_POST['eventid'];
-    $uid=$_SESSION['uid'];
-    $query="Insert into `registration` (`uid`,`type`,`eid`) values('$uid','event',$eid)";
-    $result=$db->insertQuery($query);
-    $updatequery="Update `event` set `registrations`=`registrations`+1 where `eid`='$eid'";
-    $update=$db->updateQuery($updatequery);
+    $uid=$_SESSION['user'];
+    $qur="select * from registration where uid='$uid' && eid='$eid'";
+  	$nums=$db->db_num($qur);
+    if($nums>0){
+      // echo "Already Registered";
+    }
+    else{
+      $revent=$db->SinglerunQuery("select * from event where evid='$eid'");
+      $newreg=$revent['registrations']+1;
+      $query="Insert into `registration` (`uid`,`type`,`eid`) values('$uid','event',$eid)";
+      $result=$db->insertQuery($query);
+      $updatequery="Update `event` set registrations='$newreg' where `evid`='$eid'";
+      $update=$db->updateQuery($updatequery);
+      header("Location:events.php");
+    }
   }
 ?>
 <div class="usercontainer">
@@ -133,7 +149,7 @@ include("header.php");
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">More Info</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -161,7 +177,7 @@ include("header.php");
       <div class="modal-body">
         <p class="modalp">Are you sure you want to register for this event?</p>
         <form method="post" action="events.php">
-          <input type="text hidden" name="eventid">
+          <input type="hidden" name="eventid">
           <div class="float-right">
             <button type="submit" name="register" value="register" class="btn btn-secondary">Yes</button>
             <button data-dismiss="modal" class="btn btn-secondary">No</button>
@@ -171,7 +187,7 @@ include("header.php");
     </div>
   </div>
 </div>
-
+<?php include 'topbar.php'; ?>
 <div class="events-body">
 
   <div class="new-event">
@@ -194,6 +210,8 @@ include("header.php");
     $query="Select * from event where active=1";
     $result = mysqli_query($conn, $query);
     while($row = mysqli_fetch_assoc($result)) {
+      $uuid=$row['host'];
+      $hostdata = $db->SinglerunQuery("select * from user where uid='$uuid'");
        echo '
        <div class="flip-card">
          <div class="flip-card-inner">
@@ -210,7 +228,7 @@ include("header.php");
              <h1><strong class="d-inline-block mb-2 text-success" style="text-transform:uppercase;">'.$row["name"].'</strong></h1>
              <div class="mb-1 text-mute small">'.$start.' to '.$end.'</div>
              <p class="card-text mb-auto">Venue : '.$row["venue"].'</p>
-             <p class="card-text mb-auto">City : '.$row["city"].'</p>
+             <p class="card-text mb-auto">Host : '.$hostdata["name"].'</p>
              <p class="card-text mb-auto">'.$row["registrations"].' Total Registrations</p>
              <div class=""><br>
              <button class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#registration" data-evid='.$row["evid"].' data-name='.$row["name"].'>Register</button>
@@ -234,9 +252,11 @@ include("header.php");
   <div class="past_events">
     <div class="row">
     <?php
-      $query="Select * from event where active=1";
+      $query="Select * from event where active=2";
       $result = mysqli_query($conn, $query);
       while($row = mysqli_fetch_assoc($result)) {
+        $uuid=$row['host'];
+        $hostdata = $db->SinglerunQuery("select * from user where uid='$uuid'");
         echo '
 
         <div class="flip-card">
@@ -249,7 +269,7 @@ include("header.php");
               <h1><strong class="d-inline-block mb-2 text-success" style="text-transform:uppercase;">'.$row["name"].'</strong></h1>
               <div class="mb-1 text-mute small">'.$start.' to '.$end.'</div>
               <p class="card-text mb-auto">Venue : '.$row["venue"].'</p>
-              <p class="card-text mb-auto">City : '.$row["city"].'</p>
+              <p class="card-text mb-auto">Host : '.$hostdata["name"].'</p>
               <p class="card-text mb-auto">'.$row["registrations"].' Total Participants</p>
               <div class=""><br>
               <a type="button" class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</a>
