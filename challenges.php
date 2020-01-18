@@ -12,7 +12,27 @@
     <div class="wrapper">
   <div class="scroll-list">
     <div class="scroll-list__wrp js-scroll-content js-scroll-list">
-      <div class="scroll-list__item js-scroll-list-item"></div>
+      <?php
+        $query="Select * from challenge";
+        $result = mysqli_query($conn, $query);
+        if($result){
+        while($row = mysqli_fetch_assoc($result)) { ?>
+      <div class="scroll-list__item js-scroll-list-item">
+        <h6 style="text-align:center; font-weight:bold;"> <?= $row['name'] ?> (200 Green Points)</h6><hr>
+        <div class="row">
+          <div class="col-md-8">
+            <p> <?= $row['description'] ?>  </p>
+          </div>
+          <div class="col-md-4">
+            <div class="center">
+              <button type="button" class="btn btn-outline-primary btn-sm sb" data-toggle="modal" data-target="#exampleModal3" data-description = "<?= $row['description'] ?>" data-startdate= "<?= $row['start-date'] ?>" data-enddate="<?= $row['end-date'] ?>"> Details</button>
+              <a href="#" class="btn btn-outline-success btn-sm sb" style="margin-top: 10px;" data-toggle="modal" data-target="#exampleModal4"> Completed </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <?php }} ?>
       <div class="scroll-list__item js-scroll-list-item"></div>
       <div class="scroll-list__item js-scroll-list-item"></div>
       <div class="scroll-list__item js-scroll-list-item"></div>
@@ -71,6 +91,68 @@
     </div>
   </div>
 </div>
+
+<div class="modal" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span> </button>
+          <form class="" action="index.html" method="post">
+            <div class="row">
+            	<div class="col-sm-12">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">Title</label>
+              <input type="text" class="form-control" name="venue"  placeholder="Enter title" required>
+            </div>
+              </div>
+              <div class="col-sm-12">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">Description</label>
+              <input type="text" class="form-control" name="city"  placeholder="Enter Description" required>
+            </div>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-12">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">Attach Files</label><br>
+              <input type="file"  name="description"  placeholder="Attach files" required>
+            </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-outline-primary" name="button"> submit </button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span> </button>
+        <p>lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea
+        lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea lots of textarea. </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$('#exampleModal3').on('show.bs.modal', function (event) {
+  console.log("here");
+  var button = $(event.relatedTarget)
+  var description = button.data('description')
+  var startdate = button.data('description')
+  var startdate = button.data('enddate')
+  var modal = $(this)
+  modal.find('.modal-body').text = description;
+});
+</script>
+
 
 <script type="text/javascript">
 $(document).ready(function () {
@@ -138,6 +220,8 @@ $(document).ready(function () {
   });
 
 });
+
+
 </script>
 
 <?php include('footer2.php') ?>
