@@ -79,6 +79,28 @@
       $result=$db->insertQuery($query);
       header("Location:issues.php");
     }
+
+    if(isset($_POST['submitsol']) && ! empty ($_POST['submitsol']))
+    {
+      header("Location:index.php");
+      $description=mysqli_real_escape_string($conn,$_POST['sdescription']);
+      $siid=mysqli_real_escape_string($conn,$_POST['siid']);
+      echo $siid;
+      $target_dir = "solution-attachments/";
+      $target_file = $target_dir . basename($_FILES["satt"]["name"]);
+      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      if (move_uploaded_file($_FILES["satt"]["tmp_name"], $target_file)) {
+          // echo "The file ". basename( $_FILES["description"]["name"]). " has been uploaded.";
+      } else {
+          // echo "Sorry, there was an error uploading your file.";
+      }
+      $user=$_SESSION["user"];
+      echo "here";
+      $query="Insert into `solution` (`user`,`isid`,`description`,`attachments`,`status`) values('$user','$siid','$description','$target_file','0')";
+      $result=$db->insertQuery($query);
+      echo "here2";
+      // header("Location:event.php");
+    }
   ?>
   <?php include('topbar.php');?>
   <div class="modal fade" id="raiseissue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -172,7 +194,7 @@
           <object width="400" height="400" data="<?= $att[$i] ?>"></object>
         <?php } ?>
         <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#comment" style="display:inline;">Comment</button>
-        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#solve" style="display:inline;">Solve Issue</button>
+        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#solve" data-siid="<?= $id ?>" style="display:inline;">Solve Issue</button>
         </div>
 
         <br>
@@ -206,20 +228,12 @@
       </div>
 
       <div class="modal-body">
-        <form>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-            <label for="recipient-name" class="form-control-label">Title</label>
-            <input type="text" class="form-control" name="title"  placeholder="Enter a title for your solution" required>
-          </div>
-            </div>
-          </div>
+        <form class="form" method="post" action="issues.php" enctype="multipart/form-data">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
             <label for="recipient-name" class="form-control-label">Description</label>
-            <input type="text" class="form-control" name="title"  placeholder="Give a brief description" required>
+            <input type="text" class="form-control" name="sdescription"  placeholder="Give a brief description" required>
           </div>
             </div>
           </div>
@@ -228,11 +242,12 @@
               <div class="form-group">
             <label for="recipient-name" class="form-control-label">Attachments</label>
             <br>
-            <input type="file" name="title"  placeholder="Give a brief description" required>
+            <input type="file" name="satt"  placeholder="Give a brief description" required>
           </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-success" name="button">Submit</button>
+          <input type="hidden" name="siid" id="send" value="">
+          <button type="submit" name="submitsol" class="btn btn-success" name="button">Submit</button>
         </form>
       </div>
     </div>
@@ -376,6 +391,17 @@
    </script>
  <?php } ?>
 
+  <script type="text/javascript">
+    $('#solve').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    var siid = button.data('siid')
+    console.log(siid)
+    // var name = button.data('name')
+    var modal = $(this)
+    // modal.find('.modalp').text('Are you sure you want to register for the event - '+name+' ?')
+    modal.find('.modal-body #send').val(siid)
+  })
+  </script>
   <script type="text/javascript">
   var og=0;
     function func() {

@@ -96,6 +96,21 @@ CREATE TABLE `issue` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `solutions`
+--
+
+CREATE TABLE `solution` (
+  `sid` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `user` text NOT NULL,
+  `isid` text NOT NULL,
+  `description` text NOT NULL,
+  `attachments` text NOT NULL,
+  `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `registration`
 --
 

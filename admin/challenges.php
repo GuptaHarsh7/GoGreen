@@ -10,7 +10,86 @@
   <link rel="stylesheet" href="extra/dashboard.css">
   <title>Admin Dashboard</title>
 </head>
+<?php
+  if ($_SERVER['REQUEST_METHOD'] === 'POST')
+  {
+    // if(!isset($_POST['event-name']))$_POST['event-name'] = "dhruv";
+    $event_name=mysqli_real_escape_string($conn,$_POST['event-name']);
+    $type=mysqli_real_escape_string($conn,$_POST['type']);
+    $description=mysqli_real_escape_string($conn,$_POST['description']);
+    $start_date=mysqli_real_escape_string($conn,$_POST['start-date']);
+    $end_date=mysqli_real_escape_string($conn,$_POST['end-date']);
+    $query="Insert into `challenge` (`name`,`type`,`start-date`,`end-date`,`registrations`,`active`,`description`,`completions`) values('$event_name','$type','$start_date','$end_date','0','1','$description','0')";
+    $result=$db->insertQuery($query);
+    header("Location:challenges.php");
+  }
+ ?>
 <body>
+
+  <div class="modal fade" id="challenge" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Host A New Challenge</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form" method="post" action="challenges.php">
+            <div class="row">
+            	<div class="col-sm-12">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">Event Name</label>
+              <input type="text" class="form-control" name="event-name"  placeholder="Enter challenge name" required>
+            </div>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-12">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">Type</label>
+              <select class="form-control" name="type">
+                <option value="cleanliness">Cleanliness Drive</option>
+                <option value="tree-plantation">Tree plantation</option>
+                <option value="awareness">Awareness</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-6">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">Start Date</label>
+              <input type="date" class="form-control" name="start-date"  placeholder="Enter start date" required>
+            </div>
+              </div>
+              <div class="col-sm-6">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">End Date</label>
+              <input type="date" class="form-control" name="end-date"  placeholder="Enter end  date" required>
+            </div>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-12">
+              	<div class="form-group">
+              <label for="recipient-name" class="form-control-label">Description</label><br>
+              <input type="text"  name="description"  placeholder="Enter Description" required>
+            </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="newchallenge" value="newchallenge" class="btn btn-secondary">Add Challenge!</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
 
   <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
@@ -53,7 +132,7 @@
           <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="white-box">
                   <h3 class="box-title float-left"> Challenges</h3>
-                  <a class="box-title btn btn-primary float-right" style="color:white"> Add challenge </a>
+                  <button class="box-title btn btn-primary float-right" style="color:white" data-toggle="modal" data-target="#challenge"> Add challenge </button>
                   <h3 style="clear:both"> </h3>
                   <div class="table-responsive">
                       <table class="table">

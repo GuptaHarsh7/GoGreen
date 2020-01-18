@@ -25,6 +25,15 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
       $update=$db->updateQuery($updatequery);
       header("Location:issues.php");
     }
+
+    if(isset($_REQUEST['sid']))
+    {
+      $type=mysqli_real_escape_string($conn,$_GET["accept"]);
+      $sid=mysqli_real_escape_string($conn,$_GET["sid"]);
+      $updatequery="Update `solution` set status='$type' where `sid`='$sid'";
+      $update=$db->updateQuery($updatequery);
+      header("Location:issues.php");
+    }
   ?>
 
   <div class="wrapper d-flex align-items-stretch">
@@ -129,19 +138,29 @@ if(!isset($_SESSION["admin"]) || !$_SESSION["admin"])
                                   <th> Discard </th>
                               </tr>
                           </thead>
+                          <?php
+                            $query="Select * from solution where status=0";
+                            $solutions=mysqli_query($conn, $query);
+                          ?>
                           <tbody>
+                            <?php while($row = mysqli_fetch_assoc($solutions)) {
+                              $uuid=$row['user'];
+                              $isuid=$row['isid'];
+                              $hostdata = $db->SinglerunQuery("select * from user where uid='$uuid'");
+                              $issue = $db->SinglerunQuery("select * from issue where isid='$isuid'");
+                              // $att=(explode(',',$row['attachments']))[0];
+                              ?>
                               <tr>
-                                  <td>1</td>
-                                  <td class="txt-oflo">Elite admin</td>
-                                  <td class="txt-oflo">23</td>
-                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#det" data-detail="ja" data-title="Hello">View</button></td>
-                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#att" data-detail="event.php,issues.php,dashboard.php" data-title="yaha">View</button></td>
+                                  <td><?= $uuid ?></td>
+                                  <td class="txt-oflo"><?= $hostdata['name'] ?></td>
+                                  <td class="txt-oflo"><?= $row['isid'] ?></td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#det" data-title="<?= $issue['heading'] ?>" data-category="<?= $issue['category'] ?>" data-issue="<?= $issue['issue'] ?>">View</button></td>
+                                  <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#att" data-att="<?= $row['attachments'] ?>" data-title="<?= $row['description'] ?>">View</button></td>
                                   <td> <input class="form-control display-1" type="number" value="100" style="font-size:20px; height:50px !important; max-width:120px;"></td>
-                                  <td> <a href="issues.php?accept=1&eid=1"  class="btn btn-outline-success"> Approve </a></td>
-                                  <td><a href="issues.php?accept=0&eid=1"  class="btn btn-outline-danger"> Decline </a></td>
+                                  <td> <a href="issues.php?accept=1&sid=<?= $row['sid'] ?>"  class="btn btn-outline-success"> Approve </a></td>
+                                  <td><a href="issues.php?accept=2&sid=<?= $row['sid'] ?>"  class="btn btn-outline-danger"> Decline </a></td>
                               </tr>
-
-
+                              <?php } ?>
                           </tbody>
                       </table>
                   </div>
