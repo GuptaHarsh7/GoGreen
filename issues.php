@@ -27,13 +27,25 @@
 
     if($category=='all')
     {
-      $query="Select * from issue";
-      $result = mysqli_query($conn, $query);
+      if($status=='all'){
+        $query="Select * from issue where status!=0";
+        $result = mysqli_query($conn, $query);
+      }
     }
     else
     {
-      $query="Select * from issue where category='$category'";
-      $result = mysqli_query($conn, $query);
+      if($status=='all'){
+        $query="Select * from issue where category='$category' && status!=0";
+        $result = mysqli_query($conn, $query);
+      }
+      else if($status=='solved'){
+        $query="Select * from issue where category='$category' && status=1";
+        $result = mysqli_query($conn, $query);
+      }
+      else{
+        $query="Select * from issue where category='$category' && status=2";
+        $result = mysqli_query($conn, $query);
+      }
     }
 
     if(isset($_POST['raiseissue']) && ! empty ($_POST['raiseissue']))
@@ -62,7 +74,8 @@
             // echo "The file ". basename( $_FILES["description"]["name"]). " has been uploaded.";
         }
       }
-      $query="Insert into `issue` (`host`,`category`,`heading`,`issue`,`attachments`,`status`,`upvotes`) values('dhruv','$category','$title','$issue','$files','0','0')";
+      $host=$_SESSION["user"];
+      $query="Insert into `issue` (`host`,`category`,`heading`,`issue`,`attachments`,`status`,`upvotes`) values('$host','$category','$title','$issue','$files','0','0')";
       $result=$db->insertQuery($query);
       header("Location:issues.php");
     }
