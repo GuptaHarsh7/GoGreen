@@ -5,7 +5,11 @@
 <link  rel="stylesheet"  href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css"  />
 <script  src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
 <style media="screen">
-
+  body{
+    background-image:  url("images/scroll.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   .nearby{
     width: 80%;
     height: 500px;

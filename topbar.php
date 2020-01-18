@@ -53,9 +53,9 @@ function myFunction() {
           <li><a href="https://earth.nullschool.net" target="_blank"> Web View </a></li>
           <li><a href="info.php" class="">Envirentopedia</a></li><br>
           <li><a href="air.php" class=""> Breathe Healthy </a></li><br>
-          <li><a href="#" class=""> Unknown </a></li><br>
           <li><a href="#" class=""> Institutional Portal </a></li><br>
           <li><a href="gogreenbox.php" class="">GoGreen Box</a></li><br>
+          <li><a href="#" class=""> Download App </a></li><br>
         </ul>
       </div>
     </div>

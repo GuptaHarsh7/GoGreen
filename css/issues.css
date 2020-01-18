@@ -1,6 +1,9 @@
 body{
     background: #eee;
     padding: 0;
+    background-image:  url("../images/scroll.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .container1{
@@ -25,7 +28,8 @@ body{
 }
 
 .sidenav {
-  height: 800px;
+  height: 550px;
+  background-color: white;
 }
 
 .sidenav p{
