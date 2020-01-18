@@ -3,7 +3,37 @@ body{
   padding: 0px;
   font-family: 'Ubuntu', sans-serif;
   overflow-x: hidden;
-  padding-bottom: 200px;
+
+}
+
+.subcontent{
+  padding-bottom: 100px;
+}
+
+#iimg1{
+ background-image: url("../images/standards/quaity.jpg");
+ margin-left: 100px;
+}
+
+#iimg2{
+ background-image: url("../images/standards/soil2.jpg");
+ margin-left: 50%;
+}
+
+#iimg3{
+ background-image: url("../images/standards/water.jpg");
+margin-left: 100px;
+}
+
+#iimg1 , #iimg2 , #iimg3{
+  margin-top: 50px;
+  height: 400px;
+  width: 40%;
+  background-size: contain;
+  border: 2px solid #2c774b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .topmenu{
@@ -11,7 +41,7 @@ body{
   position: relative;
 }
 .temp{
-  width: 100%!important;
+  width: 100% !important;
   top: 0px !important;
 }
 
@@ -247,7 +277,6 @@ ul li{
   display: flex;
   flex-wrap: wrap;
   margin-top: 60px;
-  justify-content: center;
 }
 
 #info .one , #info .two{
@@ -255,7 +284,7 @@ ul li{
   width: 44.5%;
   float: left;
   height: 1147px;
-          box-shadow: 1px 3px 20px grey;
+  box-shadow: 1px 3px 20px grey;
 }
 
 #info .one{

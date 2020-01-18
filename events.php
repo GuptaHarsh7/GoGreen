@@ -225,14 +225,13 @@ include("header.php");
              <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 100%; height: 100%;">
            </div>
            <div class="flip-card-back">
-             <h1><strong class="d-inline-block mb-2 text-success" style="text-transform:uppercase;">'.$row["name"].'</strong></h1>
-             <div class="mb-1 text-mute small">'.$start.' to '.$end.'</div>
+             <h4><strong class="d-inline-block mb-2" style="text-transform:uppercase;">'.$row["name"].'</strong></h4>
              <p class="card-text mb-auto">Venue : '.$row["venue"].'</p>
              <p class="card-text mb-auto">Host : '.$hostdata["name"].'</p>
              <p class="card-text mb-auto">'.$row["registrations"].' Total Registrations</p>
              <div class=""><br>
-             <button class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#registration" data-evid='.$row["evid"].' data-name='.$row["name"].'>Register</button>
-            <button type="button" class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</button>
+             <button class="btn btn-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#registration" data-evid='.$row["evid"].' data-name='.$row["name"].'>Register</button>
+            <button type="button" class="btn btn-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</button>
              </div>
            </div>
          </div>
@@ -266,13 +265,13 @@ include("header.php");
               <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 100%; height: 100%;">
             </div>
             <div class="flip-card-back">
-              <h1><strong class="d-inline-block mb-2 text-success" style="text-transform:uppercase;">'.$row["name"].'</strong></h1>
-              <div class="mb-1 text-mute small">'.$start.' to '.$end.'</div>
+              <h4><strong class="d-inline-block mb-2 " style="text-transform:uppercase;">'.$row["name"].'</strong></h4>
+
               <p class="card-text mb-auto">Venue : '.$row["venue"].'</p>
               <p class="card-text mb-auto">Host : '.$hostdata["name"].'</p>
               <p class="card-text mb-auto">'.$row["registrations"].' Total Participants</p>
               <div class=""><br>
-              <a type="button" class="btn btn-outline-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</a>
+              <a type="button" class="btn btn-success btn-sm" style="display:inline;" data-toggle="modal" data-target="#more-info" data-evn='.$row["name"].' data-description='.$row["description"].'>More Info</a>
 
               </div>
             </div>

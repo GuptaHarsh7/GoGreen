@@ -11,6 +11,38 @@
     padding-bottom: 0px;
     background-image:  url("../images/scroll.jpg");
     background-size: contain;
+
+
+
+    }
+
+    #exampleModal3 .modal-content{
+      background-color: #89ce92f0;
+      border: 3px solid #1e7e34;
+      min-height: 400px;
+    }
+
+    #exampleModal4 .modal-content{
+      background-color: #89ce92f0;
+      border: 3px solid #1e7e34;
+      min-height: 400px;
+    }
+
+
+
+
+    p{
+      font-family: cursive !important;
+    }
+
+    .sb{
+      width: 80%;
+      overflow-x: hidden;
+
+    }
+
+    hr{
+      margin: 10px 0px !important;
     }
 
     a, a:hover {
@@ -73,6 +105,7 @@
     opacity: 0;
     transform: scale(0.7);
     box-shadow: 0px 7px 16px 0px rgba(41, 53, 108, 0.25);
+    padding: 10px;
     }
     .scroll-list__item.item-hide {
     opacity: 0;

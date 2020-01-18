@@ -10,9 +10,9 @@
     <div class="right">
       <ul>
         <li><a href="events.php" class="btn btn-sm btn-outline-success">Event</a></li>
-        <li><a href="#" class="btn btn-sm btn-outline-success">Challenges</a></li>
+        <li><a href="challenges.php" class="btn btn-sm btn-outline-success">Challenges</a></li>
         <li><a href="issues.php" class="btn btn-sm btn-outline-success">Issues</a></li>
-        <li><a href="#" class="btn btn-sm btn-outline-success">Nearby</a></li>
+        <li><a href="nearby.php" class="btn btn-sm btn-outline-success">Nearby</a></li>
         <li><a href="#" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">More</a></li>
         <?php  if($_SESSION["user"]!=null) {?>
         <li><a href="" class="btn btn-sm btn-outline-success"  data-toggle="modal" data-target="#exampleModal2">Profile</a></li>
@@ -53,9 +53,9 @@ function myFunction() {
           <li><a href="https://earth.nullschool.net" target="_blank"> Web View </a></li>
           <li><a href="info.php" class="">Envirentopedia</a></li><br>
           <li><a href="air.php" class=""> Breathe Healthy </a></li><br>
-          <li><a href="#" class=""> Unknown </a></li><br>
           <li><a href="#" class=""> Institutional Portal </a></li><br>
           <li><a href="gogreenbox.php" class="">GoGreen Box</a></li><br>
+          <li><a href="#" class=""> Download App </a></li><br>
         </ul>
       </div>
     </div>
