@@ -1,6 +1,7 @@
 <?php include("header.php"); ?>
 <title>GoGreen</title>
 <link rel="stylesheet" href="css/info.css">
+<link rel="stylesheet" href="css/footer2.css">
 </head>
 <body>
 
@@ -20,20 +21,16 @@
 
 
          <div id="treatment" class="subcontent">
-           <div class="treat">
-
+           <div class="treat text-align-center">
+             <a href="https://en.wikipedia.org/wiki/List_of_environmental_ministries" class="btn btn-primary text-align-center" style="position:relative; left:40%;"> Environmental Authorities </a>
           </div>
          </div>
 
         <div id="hospitals" class="subcontent">
           <div class="treat">
-            <div class="flex-container">
-              <div style="background-color: yellow;">
-                <img src="images/" alt="">
-              </div>
-              <div>2</div>
-              <div>3</div>
-            </div>
+            <div id="iimg1"></div>
+            <div id="iimg2"></div>
+            <div id="iimg3"></div>
          </div>
        </div>
 
@@ -122,7 +119,7 @@
       </div>
 
       <script type="text/javascript">
-      document.getElementsByClassName("tablinks")[0].click();
+      document.getElementsByClassName("tablinks")[2].click();
         function function1(event,id){
 
            var i, subcontent, sublinks;
@@ -145,4 +142,4 @@
       </script>
 </div>
 
-<?php include('footer.php')?>
+<?php include('footer2.php')?>

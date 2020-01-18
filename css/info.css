@@ -3,7 +3,37 @@ body{
   padding: 0px;
   font-family: 'Ubuntu', sans-serif;
   overflow-x: hidden;
-  padding-bottom: 200px;
+
+}
+
+.subcontent{
+  padding-bottom: 100px;
+}
+
+#iimg1{
+ background-image: url("../images/standards/quaity.jpg");
+ margin-left: 100px;
+}
+
+#iimg2{
+ background-image: url("../images/standards/soil2.jpg");
+ margin-left: 50%;
+}
+
+#iimg3{
+ background-image: url("../images/standards/water.jpg");
+margin-left: 100px;
+}
+
+#iimg1 , #iimg2 , #iimg3{
+  margin-top: 50px;
+  height: 400px;
+  width: 40%;
+  background-size: contain;
+  border: 2px solid #2c774b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .topmenu{
