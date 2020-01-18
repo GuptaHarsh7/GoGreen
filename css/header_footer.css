@@ -114,6 +114,10 @@ body{
 
 }
 
+#ml_e4e2c7b3_c{
+  display: none !important;
+}
+
 #topbar .modal-content{
   background-color: #89ce92f0;
   border: 3px solid #1e7e34;
