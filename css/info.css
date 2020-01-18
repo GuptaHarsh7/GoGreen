@@ -11,7 +11,7 @@ body{
   position: relative;
 }
 .temp{
-  width: 100%!important;
+  width: 100% !important;
   top: 0px !important;
 }
 
@@ -247,7 +247,6 @@ ul li{
   display: flex;
   flex-wrap: wrap;
   margin-top: 60px;
-  justify-content: center;
 }
 
 #info .one , #info .two{
@@ -255,7 +254,7 @@ ul li{
   width: 44.5%;
   float: left;
   height: 1147px;
-          box-shadow: 1px 3px 20px grey;
+  box-shadow: 1px 3px 20px grey;
 }
 
 #info .one{
